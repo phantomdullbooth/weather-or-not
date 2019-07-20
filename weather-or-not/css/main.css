@@ -1,0 +1,580 @@
+/* this app was made with determination and a mac.
+keep calm and clear or mostly sunny. */
+
+/* UNIVERSAL BORDER */
+
+* {
+    border: 1px solid #0044ff;
+}
+
+/* ============================================================================================ //
+// ============================================================================================ //
+// FONTS /////
+// ============================================================================================ //
+// ============================================================================================ */
+
+/* // BASIER SQUARE REGULAR // */
+@font-face {
+    font-family: 'Basier Square Regular';
+    src: url('../fonts/basier-square-regular.eot');
+    src: url('../fonts/basier-square-regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/basier-square-regular.woff2') format('woff2'),
+         url('../fonts/basier-square-regular.woff') format('woff'),
+         url('../fonts/basier-square-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* // BASIER SQUARE MEDIUM // */
+@font-face {
+    font-family: 'Basier Square Medium';
+    src: url('../fonts/basier-square-medium.eot');
+    src: url('../fonts/basier-square-medium.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/basier-square-medium.woff2') format('woff2'),
+         url('../fonts/basier-square-medium.woff') format('woff'),
+         url('../fonts/basier-square-medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* /// BASIER SQUARE SEMIBOLD /// */
+@font-face {
+    font-family: 'Basier Square Semibold';
+    src: url('../fonts/basier-square-semibold.eot');
+    src: url('../fonts/basier-square-semibold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/basier-square-semibold.woff2') format('woff2'),
+         url('../fonts/basier-square-semibold.woff') format('woff'),
+         url('../fonts/basier-square-semibold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* /// BASIER SQUARE BOLD /// */
+@font-face {
+    font-family: 'Basier Square Bold';
+    src: url('../fonts/basier-square-bold.eot');
+    src: url('../fonts/basier-square-bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/basier-square-bold.woff2') format('woff2'),
+         url('../fonts/basier-square-bold.woff') format('woff'),
+         url('../fonts/basier-square-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ################################################## //
+// ################################################## //
+////////////////////////////////////////////////////////
+
+// DEFAULT FOR DEVICES 0 — 999 PX
+
+////////////////////////////////////////////////////////
+// ################################################## //
+// ################################################## */
+
+body {
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* ============================================================================================ //
+// ============================================================================================ //
+// 0 — 999 PX ///// HEADER
+// ============================================================================================ //
+// ============================================================================================ */
+
+header {
+    width: 95%;
+    margin: -50px auto;
+    height: 835px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+h1 {
+    font-family: 'Basier Square Bold', sans-serif;
+    font-size: 7rem;
+    line-height: 6rem;
+    text-transform: lowercase;
+    letter-spacing: -7px;
+    text-align: left;
+    color: #000000;
+}
+
+    .specific-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+
+    } 
+
+    #location-input {
+        width: 55%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+h4 {
+margin-bottom: -5px;
+font-family: "Basier Square Semibold";
+font-size: 3rem;
+line-height: 3rem;
+text-transform: lowercase;
+letter-spacing: -2px;
+text-align: left;
+color: #000000;
+}
+
+input {
+width: 100%;
+margin: 20 auto;
+height: 75px;
+border: none;
+border-bottom: 5px solid #000000;
+outline: 0;
+background-color: rgb(0, 0, 0, 0.0);
+font-family: "Basier Square Semibold";
+font-size: 2rem;
+line-height: 1rem;
+text-align: left;
+color: #000000;
+}
+
+::placeholder {
+    font-family: "Basier Square Semibold";
+    font-size: 2rem;
+    letter-spacing: -1px;
+    color: rgb(0, 0, 0, 0.4);
+}
+
+/* Code for disappearing placeholder
+retrieved fromm Stanhub:
+https://stanhub.com/how-to-remove-the-placeholder-on-focus-css-only/ */
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+/* End code retrieval */
+
+/* SUBMIT BUTTON — MOBILE ////////////////////////////// */
+
+
+#submit-location {
+    background-color: #00ff99;
+    border: 3px solid #000000;
+    height: 50px;
+    width: 125px;
+    margin: 35px 0;
+    font-family: "Basier Square Semibold";
+    font-size: 1rem;
+    line-height: 2rem;
+    outline: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+    #button-arrow {
+        width: 35px;
+        height: 35px;
+        filter: invert(100%);
+        transform: rotate(180deg)
+    }
+
+    #submit-location:hover {
+        background-color: #ffba00;
+    }
+
+
+/* ============================================================================================ //
+// ============================================================================================ //
+// 0 — 999 PX ///// MAIN / INFORMATION CAROUSEL
+// ============================================================================================ //
+// ============================================================================================ */
+
+#carousel-container {
+    width: 100%;
+    height: 800px;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+.arrow-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.arrow-container > p {
+    font-family: "Basier Square Semibold";
+    font-size: 1.75rem;
+    color: #000000;
+    /* letter-spacing: -1px; */
+}
+
+#back-arrow {
+    width: 75px;
+    height: 75px;
+    filter: invert(100%)
+}
+
+#forward-arrow {
+    width: 75px;
+    height: 75px;
+    filter: invert(100%);
+    transform: rotate(180deg)
+}
+
+/* ============================================================================================ //
+// ============================================================================================ //
+// 0 — 999 PX ///// REMINDER
+// ============================================================================================ //
+// ============================================================================================ */
+
+#subfooter {
+    padding-bottom: 20px;
+    height: 300px;
+    background-color: #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+h5 {
+    margin-bottom: -5px;
+    font-family: "Basier Square Semibold";
+    font-size: 2.5rem;
+    line-height: 2rem;
+    text-transform: lowercase;
+    /* letter-spacing: -1px; */
+    text-align: center;
+    color: #000000;
+}
+
+#subfooter > p {
+    font-family: "Basier Square Regular";
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    color: #000000;
+}
+
+#subfooter > input {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#submit-email{
+    background-color: #00ff99;
+    border: 3px solid #000000;
+    height: 50px;
+    width: 125px;
+    margin: 20px 0;
+    font-family: "Basier Square Semibold";
+    font-size: 1rem;
+    line-height: 2rem;
+    outline: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+    #submit-email:hover {
+        background-color: #ffba00;
+    }
+
+/* ============================================================================================ //
+// ============================================================================================ //
+// 0 — 999 PX ///// FOOTER
+// ============================================================================================ //
+// ============================================================================================ */
+
+#footer-normal {
+    width: 100%;
+    bottom: 0;
+    padding: 20px 0;
+    background-color: #000000;
+    font-family: "Basier Square Regular";
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    color: #eeeeee;
+    display: none;
+}
+#footer-mobile {
+    bottom: 0;
+    padding: 20px 0;
+    background-color: #000000;
+    font-family: "Basier Square Regular";
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    color: #eeeeee;
+    display: inline;
+}
+
+/* ################################################## //
+// ################################################## //
+////////////////////////////////////////////////////////
+
+// FOR WIDESCREENS FROM 1600 PX
+
+////////////////////////////////////////////////////////
+// ################################################## //
+// ################################################## */
+
+@media (min-width: 1600px) {
+    
+/* ============================================================================================ //
+// ============================================================================================ //
+// 1600+ PX ///// HEADER
+// ============================================================================================ //
+// ============================================================================================ */
+      
+    header {
+        width: 95%;
+        margin: -50px auto;
+        height: 400px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        /* background-color: coral; */
+    }
+    
+    h1 {
+        font-family: "Basier Square Bold";
+        font-size: 8.5rem;
+        line-height: 6.25rem;
+        text-transform: lowercase;
+        letter-spacing: -7px;
+        text-align: left;
+        color: #000000;
+    }
+    
+        .specific-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: baseline;
+
+        } 
+    
+        #location-input {
+            width: 55%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    
+    h4 {
+        margin-bottom: -5px;
+        font-family: "Basier Square Semibold";
+        font-size: 3rem;
+        line-height: 3rem;
+        text-transform: lowercase;
+        letter-spacing: -2px;
+        text-align: left;
+        color: #000000;
+    }
+    
+    input {
+        width: 100%;
+        margin: 20 auto;
+        height: 75px;
+        border: none;
+        border-bottom: 5px solid #000000;
+        outline: 0;
+        background-color: rgb(0, 0, 0, 0.0);
+        font-family: "Basier Square Semibold";
+        font-size: 2rem;
+        line-height: 1rem;
+        text-align: left;
+        color: #000000;
+    }
+    
+        ::placeholder {
+            font-family: "Basier Square Semibold";
+            font-size: 2rem;
+            letter-spacing: -1px;
+            color: rgb(0, 0, 0, 0.4);
+        }
+    
+    /* Code for disappearing placeholder
+    retrieved fromm Stanhub:
+    https://stanhub.com/how-to-remove-the-placeholder-on-focus-css-only/ */
+    input:focus::-webkit-input-placeholder { color:transparent; }
+    input:focus:-moz-placeholder { color:transparent; }
+    /* End code retrieval */
+    
+    /* SUBMIT BUTTON — MOBILE ////////////////////////////// */
+    
+    
+        #submit-location {
+            background-color: #00ff99;
+            border: 3px solid #000000;
+            height: 50px;
+            width: 125px;
+            margin: 35px 0;
+            font-family: "Basier Square Semibold";
+            font-size: 1rem;
+            line-height: 2rem;
+            outline: 0;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    
+            #button-arrow {
+                width: 35px;
+                height: 35px;
+                filter: invert(100%);
+                transform: rotate(180deg)
+            }
+    
+            #submit-location:hover {
+                background-color: #ffba00;
+            }
+    
+/* ============================================================================================ //
+// ============================================================================================ //
+// 1600+ PX ///// MAIN
+// ============================================================================================ //
+// ============================================================================================ */
+    
+    #carousel-container {
+        width: 100%;
+        height: 800px;
+        padding: 50px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;    
+    }
+    
+    .arrow-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .arrow-container > p {
+        font-family: "Basier Square Semibold";
+        font-size: 1.75rem;
+        color: #000000;
+        /* letter-spacing: -1px; */
+    }
+    
+    #back-arrow {
+        width: 75px;
+        height: 75px;
+        filter: invert(100%)
+    }
+    
+    #forward-arrow {
+        width: 75px;
+        height: 75px;
+        filter: invert(100%);
+        transform: rotate(180deg)
+    }
+    
+/* ============================================================================================ //
+// ============================================================================================ //
+// 1600+ PX ///// REMINDER
+// ============================================================================================ //
+// ============================================================================================ */
+    
+    #subfooter {
+        padding-bottom: 20px;
+        height: 300px;
+        background-color: #e7e7e7;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    h5 {
+        margin-bottom: -5px;
+        font-family: "Basier Square Semibold";
+        font-size: 2.5rem;
+        line-height: 2rem;
+        text-transform: lowercase;
+        /* letter-spacing: -1px; */
+        text-align: center;
+        color: #000000;
+    }
+    
+    #subfooter > p {
+        font-family: "Basier Square Regular";
+        font-size: 1rem;
+        line-height: 2rem;
+        text-align: center;
+        color: #000000;
+    }
+    
+    #subfooter > input {
+        width: 30%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    #submit-email{
+        background-color: #00ff99;
+        border: 3px solid #000000;
+        height: 50px;
+        width: 125px;
+        margin: 20px 0;
+        font-family: "Basier Square Semibold";
+        font-size: 1rem;
+        line-height: 2rem;
+        outline: 0;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+        #submit-email:hover {
+            background-color: #ffba00;
+        }
+    
+/* ============================================================================================ //
+// ============================================================================================ //
+// 1600+ PX ///// FOOTER
+// ============================================================================================ //
+// ============================================================================================ */
+    
+      
+    #footer-normal {
+        bottom: 0;
+        padding: 20px 0;
+        background-color: #000000;
+        font-family: "Basier Square Regular";
+        font-size: 1rem;
+        line-height: 2rem;
+        text-align: center;
+        color: #eeeeee;
+        display: inline;
+    }
+    #footer-mobile {
+        width: 100%;
+        bottom: 0;
+        padding: 20px 0;
+        background-color: #000000;
+        font-family: "Basier Square Regular";
+        font-size: 1rem;
+        line-height: 2rem;
+        text-align: center;
+        color: #eeeeee;
+        display: none;
+    }
+    
+    }
