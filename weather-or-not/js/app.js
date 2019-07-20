@@ -14,7 +14,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         'type': 'submit',
         'value': 'process',
         'id': 'submit-location'
-    }).text('submit')
+    }).text('let\'s go')
 
     const $buttonArrowLocation = $('<img>').attr({
         'src': 'images/arrow.png',
@@ -25,7 +25,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         'type': 'submit',
         'value': 'process',
         'id': 'submit-email'
-    }).text('submit')
+    }).text('send')
 
     const $buttonArrowEmail = $('<img>').attr({
         'src': 'images/arrow.png',
@@ -88,7 +88,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
 
     // ============================================================================================ //
     // ============================================================================================ //
-    // INFORMATION CAROUSEL
+    // MAIN SECTION
     // ============================================================================================ //
     // ============================================================================================ //
 
@@ -115,15 +115,19 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     // ============================== //
     /////////////// INFORMATION CAROUSEL ///////////////
 
-    //// starting city
-    const $cityDataStart = $('<div>').addClass('city-data')
-    $cityDataStart.appendTo($information)
+    const $forecast = $('<div>').attr('id', 'forecast-carousel')
+    $forecast.appendTo($information)
 
-    const $cityDataStartGeneral = $('<div>').addClass('general-data')
-    $cityDataStartGeneral.appendTo($cityDataStart)
+    // ======== CITY 1 ========= //
 
-    const $cityDataStartWon = $('<div>').addClass('won-data')
-    $cityDataStartWon.appendTo($cityDataStart)
+    const $forecast1 = $('<div>').addClass('forecast')
+    $forecast1.appendTo($forecast)
+
+    const $forecast1Conditions = $('<div>').addClass('conditions')
+    $forecast1Conditions.appendTo($forecast1)
+
+    const $forecast1Temperature = $('<div>').addClass('temperature')
+    $forecast1Temperature.appendTo($forecast1)
 
     //// ending city
     // const $cityDataEnd = $('<div>').addClass('city-data')
@@ -190,19 +194,19 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     $buttonArrowEmail.appendTo($buttonEmail)
 
 
-    // ============================================== //
-    // ============================================== //
-    ///////////////////// FOOTERS //////////////////////
-    // ============================================== //
-    // ============================================== //
+    // ============================================================================================ //
+    // ============================================================================================ //
+    // FOOTER / CONTAINS TWO VERSIONS DEPENDING ON MOBILE OR MEDIUM/COMPUTER SCREEN
+    // ============================================================================================ //
+    // ============================================================================================ //
 
-    const $footerMobile = $('<footer>').attr('id', 'footer-mobile') ///// MOBILE ///// MOBILE /////
-    $footerMobile.html('this app was made with determination and a mac. <br>keep calm and clear or mostly sunny.')
-    $footerMobile.appendTo('body') ///// MOBILE ///// MOBILE /////
+    const $footerPhone = $('<footer>').addClass('phone')
+    $footerPhone.html('this app was made with determination and a mac. <br>keep calm and clear or mostly sunny.')
+    $footerPhone.appendTo('body') // <br> inserted for line break on mobile
 
-    const $footerNormal = $('<footer>').attr('id', 'footer-normal') ///// GENERAL ///// GENERAL /////
-    $footerNormal.text('this app was made with determination and a mac. keep calm and clear or mostly sunny.')
-    $footerNormal.appendTo('body') ///// GENERAL ///// GENERAL ///// GENERAL ///// GENERAL /////
+    const $footerGeneral = $('<footer>').addClass('general') ///// GENERAL ///// GENERAL /////
+    $footerGeneral.text('this app was made with determination and a mac. keep calm and clear or mostly sunny.')
+    $footerGeneral.appendTo('body') // general version does not have a line break
 
 
     // ============================================================================================ //
@@ -211,17 +215,13 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     // ============================================================================================ //
     // ============================================================================================ //
 
-    // test variables // 
-    // cityStart = 5393068;
-    // cityEnd = 703448;
-
     $('#submit-location').on('click', (event) => { // submit location on click
         event.stopPropagation(); // prevent page from reloading;
 
         let cityStart = $('input[name="starting-city"]').val(); // answers to the 'where from?'
         let cityEnd = $('input[name="destination-city"]').val(); // answers to the 'where from?'
 
-        cityStart = 5814921;
+        cityStart = 4347800;
         cityEnd = 5814921;
 
         $.ajax({
@@ -229,51 +229,53 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         }).then(
             (data) => {
                 const skyConditions = data.list[0].weather[0].main; // cloud conditions
-                const currentTemp = data.list[0].main.temp; // current temperature
+                const currentTemp = Math.round(data.list[0].main.temp); // current temperature
+                const city = data.list[0].name; // current temperature
 
-                if (skyConditions === "Clouds") {
-                    let $startGeneral = $('<h3>').text("#rn in atlanta, it's partly cloudy.")
-                    $startGeneral.appendTo($cityDataStartGeneral);
-
-                    let $generalImg = $('<img>').attr({'id': 'general-img', 'src': 'images/cloudy-partly.png'})
-                    $generalImg.appendTo($cityDataStartGeneral);
-
-                    if (currentTemp > 80) {
-                        let $startWon = $('<h3>').text('don\'t sweater the small stuff. it\'s ' + Math.round(currentTemp) + '°F.')
-                        $startWon.appendTo($cityDataStartWon)
-
-                        let $wonImg = $('<img>').attr({'id': 'won-img', 'src': 'images/shorts.png'})
-                        $wonImg.appendTo($cityDataStartWon)
-                    }
-                } else if (skyConditions === "Clear") {
-                    let $startGeneral = $('<h3>').text("um... brella? nope. clear skies in walla walla.")
-                    $startGeneral.appendTo($cityDataStartGeneral);
-
-                    let $generalImg = $('<img>').attr({'id': 'general-img', 'src': 'images/cloudy-partly.png'})
-                    $generalImg.appendTo($cityDataStartGeneral);
-
-                    if (currentTemp < 80 && (cityStart || cityEnd) === 5814921) {
-                        let $startWon = $('<h3>').text('go out and spend that dolla dolla. it\'s ' + Math.round(currentTemp) + '°F.')
-                        $startWon.appendTo($cityDataStartWon)
-
-                        let $wonImg = $('<img>').attr({'id': 'won-img', 'src': 'images/drink.png'})
-                        $wonImg.appendTo($cityDataStartWon)
-                    }
+                switch (skyConditions) {
+                    case "Clouds":
+                        let $skies = $('<h3>').text("#rn in " + city + ", it's partly cloudy.");
+                        $skies.appendTo($forecast1Conditions);
+                        break;
+                    case "Clear":
+                        let $skies2 = $('<h3>').text("um... brella? nope. clear skies in " + city + ".");
+                        $skies2.appendTo($forecast1Conditions);
+                        break;
+                    case "Rain":
+                        let $skies3 = $('<h3>').text("two's company. three's a cloud. #rn it's raining in " + city + ".");
+                        $skies3.appendTo($forecast1Conditions);
+                        let $rain = $('<img>').attr({ 'src': 'images/rain.png', 'id': 'conditions-image' })
+                        $rain.prependTo($forecast1Conditions);
+                        break;
+                    default: $skies4 = $('<h3>').text("sorry, we're channeling miss cleo and everything's coming back foggy. try again.");
+                        $skies4.appendTo($forecast1Conditions);
                 }
-
-                
-
-
-
-
-                // let $startGeneral = $('<h1>').text("Currently, in Atlanta, 'it's " + data.list[0].weather[0].main )
+                if (currentTemp >= 90) {
+                    let $temp = $('<h3>').text("you should go jump in a pool or something. it's " + currentTemp + "°F.");
+                    $temp.appendTo($forecast1Temperature);
+                } else if (currentTemp >= 75) {
+                    let $temp2 = $('<h3>').text("mmm... a milkshake would be so good right now. it's " + currentTemp + "°F.");
+                    $temp2.appendTo($forecast1Temperature);
+                    let $rain = $('<img>').attr({ 'src': 'images/drink.png', 'id': 'conditions-image' })
+                    $rain.prependTo($forecast1Temperature);
+                } else if (currentTemp >= 55) {
+                    let $temp3 = $('<h3>').text("don't sweater the small stuff. a light jacket will do. it's " + currentTemp + "°F.");
+                    $temp3.appendTo($forecast1Temperature);
+                } else if (currentTemp <= 40) {
+                    $temp3 = $('<h3>').text("feels like you could you a coat-conspirator. it's " + currentTemp + "°F.");
+                    $temp3.appendTo($forecast1Temperature);
+                } else {
+                    $temp4 = $('<h3>').text("sorry, we're channeling miss cleo and everything's coming back foggy. try again.");
+                    $temp4.appendTo($forecast1Temperature);
+                }
+                /////
                 console.log(data.list[0].weather[0].main);
                 console.log(data.list[0].main.temp);
+                /////
             },
             () => {
                 console.log('coming back foggy. try again')
-            }
-        )
+            })
 
     }) // END OF #SUBMIT-LOCATION BUTTON CLICK; DO NOT ERASE
 

@@ -1,4 +1,4 @@
-/* this app was made with determination and a mac.
+/* this web app was made with determination and a mac.
 keep calm and clear or mostly sunny. */
 
 /* UNIVERSAL BORDER */
@@ -83,21 +83,20 @@ body {
 
 header {
     width: 95%;
-    margin: -50px auto;
-    height: 835px;
+    margin: 0 auto;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 h1 {
-    font-family: 'Basier Square Bold', sans-serif;
-    font-size: 7rem;
-    line-height: 6rem;
-    text-transform: lowercase;
-    letter-spacing: -7px;
-    text-align: left;
-    color: #000000;
+    font-family: 'Basier Square Semibold', sans-serif;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    text-align: center;
+    color: #eeeeee;
+    text-transform: uppercase;
 }
 
     .specific-container {
@@ -194,12 +193,13 @@ input:focus:-moz-placeholder { color:transparent; }
 
 #carousel-container {
     width: 100%;
-    height: auto;
+    height: 1000px;
     padding: 50px 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;    
+    justify-content: space-evenly;
+    align-items: center; 
+    background-color: #e7e7e7; 
 }
 
 .arrow-container {
@@ -229,34 +229,31 @@ input:focus:-moz-placeholder { color:transparent; }
     transform: rotate(180deg)
 }
 
+.city-data {
+    text-align: center;
+    margin: 50px 0;
+
+}
+
 .general-data {
     order: 1;
-    width: 400px;
-    text-align: center;
-    margin: 0 20px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .won-data {
     order: 2;
-    width: 40%;
-    text-align: right;
-    margin: 0 20px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
-#general-img {
-    width: 300px;
-    width: 300px;
-    text-align: center;
-    
-}
-
-#won-img {
+#conditions-image {
     width: 300px;
     width: 300px;
     text-align: center;
@@ -284,7 +281,6 @@ h3 {
 #subfooter {
     padding-bottom: 20px;
     height: 300px;
-    background-color: #e7e7e7;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -341,29 +337,29 @@ h5 {
 // ============================================================================================ //
 // ============================================================================================ */
 
-#footer-normal {
-    width: 100%;
-    bottom: 0;
-    padding: 20px 0;
-    background-color: #000000;
-    font-family: "Basier Square Regular";
-    font-size: 1rem;
-    line-height: 2rem;
-    text-align: center;
-    color: #eeeeee;
-    display: none;
-}
-#footer-mobile {
-    bottom: 0;
-    padding: 20px 0;
-    background-color: #000000;
-    font-family: "Basier Square Regular";
-    font-size: 1rem;
-    line-height: 2rem;
-    text-align: center;
-    color: #eeeeee;
-    display: inline;
-}
+    footer.general {
+        bottom: 0;
+        padding: 20px 0;
+        background-color: #000000;
+        font-family: "Basier Square Regular";
+        font-size: 1rem;
+        line-height: 2rem;
+        text-align: center;
+        color: #eeeeee;
+        display: none;
+    }      
+
+    footer.phone {
+        width: 100%;
+        bottom: 0;
+        padding: 20px 0;
+        background-color: #000000;
+        font-family: "Basier Square Regular";
+        font-size: 1rem;
+        line-height: 2rem;
+        text-align: center;
+        color: #eeeeee;
+    }
 
 /* ################################################## //
 // ################################################## //
@@ -458,10 +454,7 @@ h5 {
     https://stanhub.com/how-to-remove-the-placeholder-on-focus-css-only/ */
     input:focus::-webkit-input-placeholder { color:transparent; }
     input:focus:-moz-placeholder { color:transparent; }
-    /* End code retrieval */
-    
-    /* SUBMIT BUTTON — MOBILE ////////////////////////////// */
-    
+    /* End code retrieval */    
     
         #submit-location {
             background-color: #00ff99;
@@ -497,7 +490,7 @@ h5 {
     
     #carousel-container {
         width: 100%;
-        height: 800px;
+        height: 900px;
         padding: 50px 0;
         display: flex;
         flex-direction: row;
@@ -533,54 +526,50 @@ h5 {
         transform: rotate(180deg)
     }
 
-    .city-data {
+    #forecast-carousel {
+        margin: 0 2%;
+    }
+
+    .forecast {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: baseline;
-        margin: 5% 0 2% 0;
-        height: 90%;
+        align-items: center;
+        margin: 2% 0 2% 0;
+        height: 100%;
     }
 
-        .general-data {
+        .conditions {
             order: 1;
             width: 40%;
             text-align: left;
-            margin: 0 20px;
+            margin: 0 10px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .won-data {
+        .temperature {
             order: 2;
             width: 40%;
             text-align: right;
-            margin: 0 20px;
+            margin: 0 10px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        #general-img {
+        #conditions-image {
             width: 400px;
             width: 400px;
             
         }
 
-        #won-img {
-            width: 400px;
-            width: 400px;
-            text-align: center;
-        }
-
 
         h3 {
-            margin-top: -30px;
-            margin-bottom: 0px;
             font-family: "Basier Square Bold";
-            font-size: 8rem;
-            line-height: 8rem;
+            font-size: 5.5rem;
+            line-height: 6rem;
             text-transform: lowercase;
             letter-spacing: -2px;
             color: #000000;
@@ -652,8 +641,7 @@ h5 {
 // ============================================================================================ //
 // ============================================================================================ */
     
-      
-    #footer-normal {
+    footer.general {
         bottom: 0;
         padding: 20px 0;
         background-color: #000000;
@@ -663,8 +651,9 @@ h5 {
         text-align: center;
         color: #eeeeee;
         display: inline;
-    }
-    #footer-mobile {
+    }      
+    
+    footer.phone {
         width: 100%;
         bottom: 0;
         padding: 20px 0;
@@ -676,5 +665,4 @@ h5 {
         color: #eeeeee;
         display: none;
     }
-    
-    }
+}
