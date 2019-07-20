@@ -52,13 +52,14 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
 
     const $startContainer = $('<div>').addClass('specific-container')
     $startContainer.appendTo($header)
-    
+
     const $startQuestion = $('<h4>').text('where from?')
     $startQuestion.appendTo($startContainer)
 
     const $startInput = $('<input>').attr({
         'type': 'text',
-        'placeholder': 'zip code'
+        'name': 'starting-city',
+        'placeholder': 'city'
     })
     $startInput.appendTo($startContainer)
 
@@ -72,7 +73,8 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
 
     const $endInput = $('<input>').attr({
         'type': 'text',
-        'placeholder': 'zip code'
+        'name': 'destination-city',
+        'placeholder': 'city'
     })
     $endInput.appendTo($endContainer)
 
@@ -108,7 +110,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     $backArrowLabel.appendTo($backArrowContainer)
 
     // FORWARD ////////////////
-    
+
     const $forwardArrowContainer = $('<div>').addClass('arrow-container')
     $forwardArrowContainer.appendTo($information)
 
@@ -120,7 +122,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         'id': 'forward-arrow'
     })
     $forwardArrow.appendTo($forwardArrowContainer)
-    
+
 
 
 
@@ -144,7 +146,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         'placeholder': 'enter your email'
     })
     $noteInput.appendTo($subfooter)
-    
+
     $buttonEmail.appendTo($subfooter)
     $buttonArrowEmail.appendTo($buttonEmail)
 
@@ -158,19 +160,31 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $footerMobile = $('<footer>').attr('id', 'footer-mobile') ///// MOBILE ///// MOBILE /////
     $footerMobile.html('this app was made with determination and a mac. <br>keep calm and clear or mostly sunny.')
     $footerMobile.appendTo('body') ///// MOBILE ///// MOBILE /////
-    
+
     const $footerNormal = $('<footer>').attr('id', 'footer-normal') ///// GENERAL ///// GENERAL /////
     $footerNormal.text('this app was made with determination and a mac. keep calm and clear or mostly sunny.')
     $footerNormal.appendTo('body') ///// GENERAL ///// GENERAL ///// GENERAL ///// GENERAL /////
 
-    // ============================================== //
-    // ============================================== //
-    /////////////// AJAX — STRONGER THAN GREASE/GREECE
-    // ============================================== //
-    // ============================================== //
+
+    // ============================================================================================ //
+    // ============================================================================================ //
+    // AJAX //////////////////// STRONGER THAN GREECE / GREASE. THE MORE YOU REALIZE.
+    // ============================================================================================ //
+    // ============================================================================================ //
+
+    $('#submit-location').on('click', (event) => { // submit location on click
+        event.preventDefault(); // prevent page from reloading;
+
+        let cityStart = $('input[name="starting-city"]').val(); // answers to the 'where from?'
+        let cityEnd = $('input[name="destination-city"]').val(); // answers to the 'where from?'
+        
+        cityStart = 5393068;
+        cityEnd = 703448;
+
+    
 
     $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/group?id=5393068,703448&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
+        url: "https://api.openweathermap.org/data/2.5/group?id=" + cityStart + "," + cityEnd + "&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
     }).then(
         (data) => {
             console.log(data);
@@ -180,9 +194,13 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         }
     )
 
-    /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUCH ///
-}) /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUCH ///
-/// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUCH ///
+}) // END OF #SUBMIT-LOCATION BUTTON CLICK; DO NOT ERASE
+
+// ============================================================================================ //
+// ============================================================================================ //
+}) // DOCUMENT.READY /// DO NOT TOUCH ///
+// ============================================================================================ //
+// ============================================================================================ //
 
 // 052b6765bf73ea440e9f314c5808f645
 
