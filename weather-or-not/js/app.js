@@ -170,7 +170,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     // ============================================== //
 
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/group?id=5393068,703448&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
+        url: "https://api.openweathermap.org/data/2.5/group?id=5393068,703448&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
     }).then(
         (data) => {
             console.log(data);
