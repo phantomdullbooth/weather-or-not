@@ -86,16 +86,18 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
 
 
 
-    // ============================================== //
-    // ============================================== //
-    /////////////// INFORMATION CAROUSEL ///////////////
-    // ============================================== //
-    // ============================================== //
+    // ============================================================================================ //
+    // ============================================================================================ //
+    // INFORMATION CAROUSEL
+    // ============================================================================================ //
+    // ============================================================================================ //
 
     const $information = $('<div>').attr('id', 'carousel-container')
     $information.appendTo('body')
 
-    // BACK ////////////////
+    // ================= //
+    // ============================== //
+    /////////////// BACK ARROW ///////////////
 
     const $backArrowContainer = $('<div>').addClass('arrow-container')
     $backArrowContainer.appendTo($information)
@@ -109,12 +111,49 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $backArrowLabel = $('<p>').attr('id', 'back-arrow-label').text('back')
     $backArrowLabel.appendTo($backArrowContainer)
 
-    // FORWARD ////////////////
+    // ================= //
+    // ============================== //
+    /////////////// INFORMATION CAROUSEL ///////////////
+
+    //// starting city
+    const $cityDataStart = $('<div>').addClass('city-data')
+    $cityDataStart.appendTo($information)
+
+    const $cityDataStartGeneral = $('<div>').addClass('general-data')
+    $cityDataStartGeneral.appendTo($cityDataStart)
+
+    const $cityDataStartWon = $('<div>').addClass('won-data')
+    $cityDataStartWon.appendTo($cityDataStart)
+
+    //// ending city
+    // const $cityDataEnd = $('<div>').addClass('city-data')
+    // $cityDataEnd.appendTo($information)
+
+    // const $cityDataEndGeneral = $('<div>').addClass('general-data')
+    // $cityDataEndGeneral.appendTo($cityDataEnd)
+
+    // const $cityDataEndWon = $('<div>').addClass('won-data')
+    // $cityDataEndWon.appendTo($cityDataEnd)
+
+    // //// summary
+    // const $summary = $('<div>').addClass('city-data')
+    // $summary.appendTo($information)
+
+    // const $summaryGeneral = $('<div>').addClass('general-data')
+    // $summaryGeneral.appendTo($summary)
+
+    // const $summaryWon = $('<div>').addClass('won-data')
+    // $summaryWon.appendTo($summary)
+
+
+    // ================= //
+    // ============================== //
+    /////////////// FORWARD ARROW ///////////////
 
     const $forwardArrowContainer = $('<div>').addClass('arrow-container')
     $forwardArrowContainer.appendTo($information)
 
-    const $forwardArrowLabel = $('<p>').attr('id', 'back-arrow-label').text('forward')
+    const $forwardArrowLabel = $('<p>').attr('id', 'back-arrow-label').text('next')
     $forwardArrowLabel.appendTo($forwardArrowContainer)
 
     const $forwardArrow = $('<img>').attr({
@@ -172,32 +211,58 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     // ============================================================================================ //
     // ============================================================================================ //
 
+    // test variables // 
+    // cityStart = 5393068;
+    // cityEnd = 703448;
+
     $('#submit-location').on('click', (event) => { // submit location on click
-        event.preventDefault(); // prevent page from reloading;
+        event.stopPropagation(); // prevent page from reloading;
 
         let cityStart = $('input[name="starting-city"]').val(); // answers to the 'where from?'
         let cityEnd = $('input[name="destination-city"]').val(); // answers to the 'where from?'
-        
-        cityStart = 5393068;
+
+        cityStart = 4180439;
         cityEnd = 703448;
 
-    
+        $.ajax({
+            url: "https://api.openweathermap.org/data/2.5/group?id=" + cityStart + "," + cityEnd + "&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
+        }).then(
+            (data) => {
+                const skyConditions = data.list[0].weather[0].main; // cloud conditions
+                const currentTemp = data.list[0].main.temp; // current temperature
 
-    $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/group?id=" + cityStart + "," + cityEnd + "&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
-    }).then(
-        (data) => {
-            console.log(data);
-        },
-        () => {
-            console.log('coming back foggy. try again')
-        }
-    )
+                if (skyConditions === "Clouds") {
+                    let $startGeneral = $('<h3>').text("#rn in atlanta, it's partly cloudy.")
+                    $startGeneral.appendTo($cityDataStartGeneral);
 
-}) // END OF #SUBMIT-LOCATION BUTTON CLICK; DO NOT ERASE
+                    let $generalImg = $('<img>').attr({'id': 'general-img', 'src': 'images/cloudy-partly.png'})
+                    $generalImg.prependTo($cityDataStartGeneral)
 
-// ============================================================================================ //
-// ============================================================================================ //
+                    if (currentTemp > 80) {
+                        let $startWon = $('<h3>').text('don\'t sweater the small stuff. it\'s ' + Math.round(currentTemp) + '°F.')
+                        $startWon.appendTo($cityDataStartWon)
+
+                        let $wonImg = $('<img>').attr({'id': 'won-img', 'src': 'images/shorts.png'})
+                        $wonImg.appendTo($cityDataStartWon)
+                    }
+                }
+
+
+
+
+                // let $startGeneral = $('<h1>').text("Currently, in Atlanta, 'it's " + data.list[0].weather[0].main )
+                console.log(data.list[0].weather[0].main);
+                console.log(data.list[0].main.temp);
+            },
+            () => {
+                console.log('coming back foggy. try again')
+            }
+        )
+
+    }) // END OF #SUBMIT-LOCATION BUTTON CLICK; DO NOT ERASE
+
+    // ============================================================================================ //
+    // ============================================================================================ //
 }) // DOCUMENT.READY /// DO NOT TOUCH ///
 // ============================================================================================ //
 // ============================================================================================ //

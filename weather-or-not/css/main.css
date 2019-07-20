@@ -456,7 +456,8 @@ h5 {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;    
+        align-items: center;   
+        background-color: #e7e7e7; 
     }
     
     .arrow-container {
@@ -485,6 +486,59 @@ h5 {
         filter: invert(100%);
         transform: rotate(180deg)
     }
+
+    .city-data {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        vertical-align: center;
+        margin: 2%;
+        height: 90%;
+    }
+
+        .general-data {
+            order: 1;
+            width: 40%;
+            text-align: left;
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .won-data {
+            order: 2;
+            width: 40%;
+            text-align: right;
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #general-img {
+            width: 400px;
+            width: 400px;
+            
+        }
+
+        #won-img {
+            width: 400px;
+            width: 400px;
+            text-align: center;
+        }
+
+
+        h3 {
+            margin-top: -30px;
+            margin-bottom: 0px;
+            font-family: "Basier Square Bold";
+            font-size: 8rem;
+            line-height: 8rem;
+            text-transform: lowercase;
+            letter-spacing: -2px;
+            color: #000000;
+        }
     
 /* ============================================================================================ //
 // ============================================================================================ //
@@ -495,7 +549,7 @@ h5 {
     #subfooter {
         padding-bottom: 20px;
         height: 300px;
-        background-color: #e7e7e7;
+        background-color: #eeeeee;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
