@@ -221,8 +221,8 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         let cityStart = $('input[name="starting-city"]').val(); // answers to the 'where from?'
         let cityEnd = $('input[name="destination-city"]').val(); // answers to the 'where from?'
 
-        cityStart = 4180439;
-        cityEnd = 703448;
+        cityStart = 5814921;
+        cityEnd = 5814921;
 
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/group?id=" + cityStart + "," + cityEnd + "&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
@@ -236,7 +236,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
                     $startGeneral.appendTo($cityDataStartGeneral);
 
                     let $generalImg = $('<img>').attr({'id': 'general-img', 'src': 'images/cloudy-partly.png'})
-                    $generalImg.prependTo($cityDataStartGeneral)
+                    $generalImg.appendTo($cityDataStartGeneral);
 
                     if (currentTemp > 80) {
                         let $startWon = $('<h3>').text('don\'t sweater the small stuff. it\'s ' + Math.round(currentTemp) + '°F.')
@@ -245,7 +245,23 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
                         let $wonImg = $('<img>').attr({'id': 'won-img', 'src': 'images/shorts.png'})
                         $wonImg.appendTo($cityDataStartWon)
                     }
+                } else if (skyConditions === "Clear") {
+                    let $startGeneral = $('<h3>').text("um... brella? nope. clear skies in walla walla.")
+                    $startGeneral.appendTo($cityDataStartGeneral);
+
+                    let $generalImg = $('<img>').attr({'id': 'general-img', 'src': 'images/cloudy-partly.png'})
+                    $generalImg.appendTo($cityDataStartGeneral);
+
+                    if (currentTemp < 80 && (cityStart || cityEnd) === 5814921) {
+                        let $startWon = $('<h3>').text('go out and spend that dolla dolla. it\'s ' + Math.round(currentTemp) + '°F.')
+                        $startWon.appendTo($cityDataStartWon)
+
+                        let $wonImg = $('<img>').attr({'id': 'won-img', 'src': 'images/drink.png'})
+                        $wonImg.appendTo($cityDataStartWon)
+                    }
                 }
+
+                
 
 
 
