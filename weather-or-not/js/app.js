@@ -221,8 +221,8 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         let cityStart = $('input[name="starting-city"]').val(); // answers to the 'where from?'
         let cityEnd = $('input[name="destination-city"]').val(); // answers to the 'where from?'
 
-        cityStart = 4347800;
-        cityEnd = 5814921;
+        cityStart = 5873095;
+        cityEnd = 5873095;
 
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/group?id=" + cityStart + "," + cityEnd + "&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
@@ -234,39 +234,45 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
 
                 switch (skyConditions) {
                     case "Clouds":
-                        let $skies = $('<h3>').text("#rn in " + city + ", it's partly cloudy.");
-                        $skies.appendTo($forecast1Conditions);
+                        let $clouds = $('<h3>').text("#rn in " + city + ", it's partly cloudy.");
+                        $clouds.appendTo($forecast1Conditions);
                         break;
                     case "Clear":
-                        let $skies2 = $('<h3>').text("um... brella? nope. clear skies in " + city + ".");
-                        $skies2.appendTo($forecast1Conditions);
+                        let $clear = $('<h3>').text("um... brella? nope. clear skies in " + city + ".");
+                        $clear.appendTo($forecast1Conditions);
                         break;
                     case "Rain":
-                        let $skies3 = $('<h3>').text("two's company. three's a cloud. #rn it's raining in " + city + ".");
-                        $skies3.appendTo($forecast1Conditions);
-                        let $rain = $('<img>').attr({ 'src': 'images/rain.png', 'id': 'conditions-image' })
-                        $rain.prependTo($forecast1Conditions);
+                        let $rain = $('<h3>').text("two's company. three's a cloud. #rn it's raining in " + city + ".");
+                        $rain.appendTo($forecast1Conditions);
+                        let $rainImg = $('<img>').attr({ 'src': 'images/rain.png', 'id': 'conditions-image' })
+                        $rainImg.prependTo($forecast1Conditions);
                         break;
-                    default: $skies4 = $('<h3>').text("sorry, we're channeling miss cleo and everything's coming back foggy. try again.");
-                        $skies4.appendTo($forecast1Conditions);
+                    case "Thunderstorm":
+                        let $thunderstorm = $('<h3>').text("rumble and flash. it's thunderstormin' in " + city + ".");
+                        $thunderstorm.appendTo($forecast1Conditions);
+                        let $thunderstormImg = $('<img>').attr({ 'src': 'images/thunderstorm.png', 'id': 'conditions-image' })
+                        $thunderstormImg.prependTo($forecast1Conditions);
+                        break;
+                    default: $defaultConditions = $('<h3>').text("we're channeling miss cleo and everything's coming back foggy. try again later.");
+                        $defaultConditions.appendTo($forecast1Conditions);
                 }
                 if (currentTemp >= 90) {
-                    let $temp = $('<h3>').text("you should go jump in a pool or something. it's " + currentTemp + "°F.");
-                    $temp.appendTo($forecast1Temperature);
+                    let $more90 = $('<h3>').text("you should go jump in a pool or something. it's " + currentTemp + "°F.");
+                    $more90.appendTo($forecast1Temperature);
                 } else if (currentTemp >= 75) {
-                    let $temp2 = $('<h3>').text("mmm... a milkshake would be so good right now. it's " + currentTemp + "°F.");
-                    $temp2.appendTo($forecast1Temperature);
-                    let $rain = $('<img>').attr({ 'src': 'images/drink.png', 'id': 'conditions-image' })
-                    $rain.prependTo($forecast1Temperature);
+                    let $more75 = $('<h3>').text("mmm... a milkshake would be so good right now. it's " + currentTemp + "°F.");
+                    $more75.appendTo($forecast1Temperature);
+                    let $drink = $('<img>').attr({ 'src': 'images/drink.png', 'id': 'conditions-image' })
+                    $drink.prependTo($forecast1Temperature);
                 } else if (currentTemp >= 55) {
-                    let $temp3 = $('<h3>').text("don't sweater the small stuff. a light jacket will do. it's " + currentTemp + "°F.");
-                    $temp3.appendTo($forecast1Temperature);
+                    let $more55 = $('<h3>').text("don't sweater the small stuff. a light jacket will do. it's " + currentTemp + "°F.");
+                    $more55.appendTo($forecast1Temperature);
                 } else if (currentTemp <= 40) {
-                    $temp3 = $('<h3>').text("feels like you could you a coat-conspirator. it's " + currentTemp + "°F.");
-                    $temp3.appendTo($forecast1Temperature);
+                    $more40 = $('<h3>').text("feels like you could you a coat-conspirator. it's " + currentTemp + "°F.");
+                    $more40.appendTo($forecast1Temperature);
                 } else {
-                    $temp4 = $('<h3>').text("sorry, we're channeling miss cleo and everything's coming back foggy. try again.");
-                    $temp4.appendTo($forecast1Temperature);
+                    $defaultTemperature = $('<h3>').text("sorry, we're channeling miss cleo and everything's coming back foggy. try again.");
+                    $defaultTemperature.appendTo($forecast1Temperature);
                 }
                 /////
                 console.log(data.list[0].weather[0].main);
