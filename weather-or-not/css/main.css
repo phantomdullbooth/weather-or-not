@@ -1,8 +1,3 @@
-/* this web app was made with determination and a mac.
-keep calm and clear or mostly sunny. */
-
-/* UNIVERSAL BORDER */
-
 /* * {
     border: 1px solid #0044ff;
 } */
@@ -13,7 +8,7 @@ keep calm and clear or mostly sunny. */
 // ============================================================================================ //
 // ============================================================================================ */
 
-/* // BASIER SQUARE REGULAR // */
+/* BASIER SQUARE REGULAR */
 @font-face {
     font-family: 'Basier Square Regular';
     src: url('../fonts/basier-square-regular.eot');
@@ -24,7 +19,7 @@ keep calm and clear or mostly sunny. */
     font-weight: normal;
     font-style: normal;
 }
-/* // BASIER SQUARE MEDIUM // */
+/* BASIER SQUARE MEDIUM */
 @font-face {
     font-family: 'Basier Square Medium';
     src: url('../fonts/basier-square-medium.eot');
@@ -35,7 +30,7 @@ keep calm and clear or mostly sunny. */
     font-weight: normal;
     font-style: normal;
 }
-/* /// BASIER SQUARE SEMIBOLD /// */
+/* BASIER SQUARE SEMIBOLD */
 @font-face {
     font-family: 'Basier Square Semibold';
     src: url('../fonts/basier-square-semibold.eot');
@@ -46,7 +41,7 @@ keep calm and clear or mostly sunny. */
     font-weight: normal;
     font-style: normal;
 }
-/* /// BASIER SQUARE BOLD /// */
+/* BASIER SQUARE BOLD */
 @font-face {
     font-family: 'Basier Square Bold';
     src: url('../fonts/basier-square-bold.eot');
@@ -57,398 +52,98 @@ keep calm and clear or mostly sunny. */
     font-weight: normal;
     font-style: normal;
 }
+    
+h1, h2 {
+    font-family: "Basier Square Bold";
+    text-transform: lowercase;
+    color: #000000;
+}
 
-/* ################################################## //
-// ################################################## //
-////////////////////////////////////////////////////////
+h3, h4 {
+    margin-bottom: -5px;
+    font-family: "Basier Square Semibold";
+    text-transform: lowercase;
+    color: #000000;
+}
 
-// DEFAULT FOR DEVICES 0 — 999 PX
+h1 {
+    order: 1;
+    font-size: 8rem;
+    line-height: 6rem;
+    letter-spacing: -7px;
+    text-align: left;   
+    padding: -50px;  
+}
 
-////////////////////////////////////////////////////////
-// ################################################## //
-// ################################################## */
+h2 {
+    font-size: 5rem;
+    line-height: 5.5rem;
+    letter-spacing: -2px;
+}
 
-body {
-    background-color: #eeeeee;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+h3 {    
+    font-size: 2rem;
+    line-height: 2rem;
+    letter-spacing: -2px;
+    text-align: center;
+    width: 50;
+}
+
+h4 {
+    font-size: 2.5rem;
+    line-height: 2rem;
+    text-align: center;
 }
 
 /* ============================================================================================ //
 // ============================================================================================ //
-// 0 — 999 PX ///// HEADER
+// 1600+ PX ///// HEADER // CONTAINS APPLICATION LOGO & LOCATION INPUTS
 // ============================================================================================ //
 // ============================================================================================ */
 
 header {
-    width: 95%;
-    margin: 0 auto;
-    height: 600px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    margin: -50px auto;
 }
 
-h1 {
-    font-family: 'Basier Square Semibold', sans-serif;
-    font-size: 2rem;
-    letter-spacing: -1px;
-    text-align: center;
-    color: #eeeeee;
-    text-transform: uppercase;
-}
+    #header-container {
+        order: 1;
+    }
 
-    .specific-container {
+    .location-input {
+        order: 2;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: baseline;
-
-    } 
-
-    #location-input {
-        width: 55%;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
     }
-
-h4 {
-margin-bottom: -5px;
-font-family: "Basier Square Semibold";
-font-size: 3rem;
-line-height: 3rem;
-text-transform: lowercase;
-letter-spacing: -2px;
-text-align: left;
-color: #000000;
-}
-
+    
 input {
-width: 100%;
-margin: 20 auto;
-height: 75px;
-border: none;
-border-bottom: 5px solid #000000;
-outline: 0;
-background-color: rgb(0, 0, 0, 0.0);
-font-family: "Basier Square Semibold";
-font-size: 2rem;
-line-height: 1rem;
-text-align: left;
-color: #000000;
-}
-
-::placeholder {
-    font-family: "Basier Square Semibold";
-    font-size: 2rem;
-    letter-spacing: -1px;
-    color: rgb(0, 0, 0, 0.4);
-}
-
-/* Code for disappearing placeholder
-retrieved fromm Stanhub:
-https://stanhub.com/how-to-remove-the-placeholder-on-focus-css-only/ */
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
-/* End code retrieval */
-
-/* SUBMIT BUTTON — MOBILE ////////////////////////////// */
-
-
-#submit-location {
-    background-color: #00ff99;
-    border: 3px solid #000000;
-    height: 50px;
-    width: 125px;
-    margin: 35px 0;
-    font-family: "Basier Square Semibold";
-    font-size: 1rem;
-    line-height: 2rem;
+    width: 100%;
+    margin: 20 auto;
+    height: 75px;
+    border: none;
+    border-bottom: 5px solid #000000;
     outline: 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-    #button-arrow {
-        width: 35px;
-        height: 35px;
-        filter: invert(100%);
-        transform: rotate(180deg)
-    }
-
-    #submit-location:hover {
-        background-color: #ffba00;
-    }
-
-
-/* ============================================================================================ //
-// ============================================================================================ //
-// 0 — 999 PX ///// MAIN / INFORMATION CAROUSEL
-// ============================================================================================ //
-// ============================================================================================ */
-
-#carousel-container {
-    width: 100%;
-    height: 1000px;
-    padding: 50px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center; 
-    background-color: #e7e7e7; 
-}
-
-.arrow-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.arrow-container > p {
-    font-family: "Basier Square Semibold";
-    font-size: 1.75rem;
-    color: #000000;
-    /* letter-spacing: -1px; */
-}
-
-#back-arrow {
-    width: 75px;
-    height: 75px;
-    filter: invert(100%)
-}
-
-#forward-arrow {
-    width: 75px;
-    height: 75px;
-    filter: invert(100%);
-    transform: rotate(180deg)
-}
-
-.city-data {
-    text-align: center;
-    margin: 50px 0;
-
-}
-
-.general-data {
-    order: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.won-data {
-    order: 2;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#conditions-image {
-    width: 300px;
-    width: 300px;
-    text-align: center;
-}
-
-
-h3 {
-    margin-top: -30px;
-    margin-bottom: 0px;
-    font-family: "Basier Square Bold";
-    font-size: 3rem;
-    line-height: 4rem;
-    text-transform: lowercase;
-    word-wrap: break-word;
-    letter-spacing: -2px;
-    color: #000000;
-}
-
-/* ============================================================================================ //
-// ============================================================================================ //
-// 0 — 999 PX ///// REMINDER
-// ============================================================================================ //
-// ============================================================================================ */
-
-#subfooter {
-    padding-bottom: 20px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-h5 {
-    margin-bottom: -5px;
-    font-family: "Basier Square Semibold";
-    font-size: 2.5rem;
-    line-height: 2rem;
-    text-transform: lowercase;
-    /* letter-spacing: -1px; */
-    text-align: center;
-    color: #000000;
-}
-
-#subfooter > p {
+    background-color: rgb(0, 0, 0, 0.0);
     font-family: "Basier Square Regular";
-    font-size: 1rem;
-    line-height: 2rem;
-    text-align: center;
+    font-size: 2rem;
+    line-height: 1rem;
+    text-align: left;
     color: #000000;
 }
-
-#subfooter > input {
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#submit-email{
-    background-color: #00ff99;
-    border: 3px solid #000000;
-    height: 50px;
-    width: 125px;
-    margin: 20px 0;
-    font-family: "Basier Square Semibold";
-    font-size: 1rem;
-    line-height: 2rem;
-    outline: 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-    #submit-email:hover {
-        background-color: #ffba00;
-    }
-
-/* ============================================================================================ //
-// ============================================================================================ //
-// 0 — 999 PX ///// FOOTER
-// ============================================================================================ //
-// ============================================================================================ */
-
-    footer.general {
-        bottom: 0;
-        padding: 20px 0;
-        background-color: #000000;
-        font-family: "Basier Square Regular";
-        font-size: 1rem;
-        line-height: 2rem;
-        text-align: center;
-        color: #eeeeee;
-        display: none;
-    }      
-
-    footer.phone {
-        width: 100%;
-        bottom: 0;
-        padding: 20px 0;
-        background-color: #000000;
-        font-family: "Basier Square Regular";
-        font-size: 1rem;
-        line-height: 2rem;
-        text-align: center;
-        color: #eeeeee;
-    }
-
-/* ################################################## //
-// ################################################## //
-////////////////////////////////////////////////////////
-
-// FOR WIDESCREENS FROM 1600 PX
-
-////////////////////////////////////////////////////////
-// ################################################## //
-// ################################################## */
-
-@media (min-width: 1600px) {
     
-/* ============================================================================================ //
-// ============================================================================================ //
-// 1600+ PX ///// HEADER
-// ============================================================================================ //
-// ============================================================================================ */
-      
-    header {
-        width: 95%;
-        margin: -50px auto;
-        height: 400px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        /* background-color: coral; */
-    }
-    
-    h1 {
-        font-family: "Basier Square Bold";
-        font-size: 8.5rem;
-        line-height: 6.25rem;
-        text-transform: lowercase;
-        letter-spacing: -7px;
-        text-align: left;
-        color: #000000;
-    }
-    
-        .specific-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: baseline;
-
-        } 
-    
-        #location-input {
-            width: 55%;
-            height: auto;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-    
-    h4 {
-        margin-bottom: -5px;
-        font-family: "Basier Square Semibold";
-        font-size: 3rem;
-        line-height: 3rem;
-        text-transform: lowercase;
-        letter-spacing: -2px;
-        text-align: left;
-        color: #000000;
-    }
-    
-    input {
-        width: 100%;
-        margin: 20 auto;
-        height: 75px;
-        border: none;
-        border-bottom: 5px solid #000000;
-        outline: 0;
-        background-color: rgb(0, 0, 0, 0.0);
+    ::placeholder {
         font-family: "Basier Square Regular";
         font-size: 2rem;
-        line-height: 1rem;
-        text-align: left;
-        color: #000000;
+        letter-spacing: -1px;
+        color: rgb(0, 0, 0, 0.4);
     }
-    
-        ::placeholder {
-            font-family: "Basier Square Regular";
-            font-size: 2rem;
-            letter-spacing: -1px;
-            color: rgb(0, 0, 0, 0.4);
-        }
-    
+
     /* Code for disappearing placeholder
     retrieved fromm Stanhub:
     https://stanhub.com/how-to-remove-the-placeholder-on-focus-css-only/ */
@@ -456,184 +151,112 @@ h5 {
     input:focus:-moz-placeholder { color:transparent; }
     /* End code retrieval */    
     
-        #submit-location {
-            background-color: #00ff99;
-            border: 3px solid #000000;
-            height: 50px;
-            width: 125px;
-            margin: 35px 0;
-            font-family: "Basier Square Semibold";
-            font-size: 1rem;
-            line-height: 2rem;
-            outline: 0;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
+    #lets-go {
+        order: 3;
+        margin: 35px 0;
+        width: 125px;
+        height: 50px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        outline: 0;
+        border: 3px solid #000000;
+        background-color: #00ff99;
+        font-family: "Basier Square Semibold";
+        font-size: 1rem;
+        line-height: 2rem;        
+    }
+
+    #lets-go:hover {
+        background-color: #ffba00;
+    }
     
-            #button-arrow {
-                width: 35px;
-                height: 35px;
-                filter: invert(100%);
-                transform: rotate(180deg)
-            }
-    
-            #submit-location:hover {
-                background-color: #ffba00;
-            }
-    
+    #button-cities-icon {
+        width: 35px;
+        height: 35px;
+        filter: invert(100%);
+        transform: rotate(180deg)
+    }
+
 /* ============================================================================================ //
 // ============================================================================================ //
-// 1600+ PX ///// MAIN
+// 1600+ PX ///// MAIN // CONTAINS LEFT AND RIGHT ARROWS & FORECAST CAROUSEL
 // ============================================================================================ //
 // ============================================================================================ */
     
-    #carousel-container {
-        width: 100%;
-        height: 900px;
-        padding: 50px 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;   
-        background-color: #e7e7e7; 
-    }
+main {
+    width: 100%;
+    height: 450px;
+    padding: 50px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;;
+    align-items: center;   
+    background-color: #e7e7e7; 
+}
     
-    .arrow-container {
+    .nav-arrow {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
     }
     
-    .arrow-container > p {
+    .nav-arrow > p {
         font-family: "Basier Square Semibold";
         font-size: 1.75rem;
         color: #000000;
-        /* letter-spacing: -1px; */
     }
     
-    #back-arrow {
+    #left-arrow {
         width: 75px;
         height: 75px;
         filter: invert(100%)
     }
     
-    #forward-arrow {
+    #nav-arrow-next {
         width: 75px;
         height: 75px;
         filter: invert(100%);
         transform: rotate(180deg)
     }
 
-    #forecast-carousel {
-        margin: 0 2%;
-    }
-
-    .forecast {
+    /* ========== WEATHER REPORTS */
+    #current-reports {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        margin: 2% 0 2% 0;
-        height: 100%;
     }
 
-        .conditions {
+
+    .forecast {
+        margin: 0 20%;
+        text-align: center;
+    }
+
+
+        #sky-conditions {
             order: 1;
-            width: 40%;
-            text-align: left;
-            margin: 0 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            width: 20%;
         }
 
-        .temperature {
+        .report-text {
             order: 2;
-            width: 40%;
-            text-align: right;
-            margin: 0 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
-        #conditions-image {
-            width: 400px;
-            width: 400px;
-            
-        }
-
-
-        h3 {
-            font-family: "Basier Square Bold";
-            font-size: 5.5rem;
-            line-height: 6rem;
-            text-transform: lowercase;
-            letter-spacing: -2px;
-            color: #000000;
-        }
+        
     
-/* ============================================================================================ //
-// ============================================================================================ //
-// 1600+ PX ///// REMINDER
-// ============================================================================================ //
-// ============================================================================================ */
-    
-    #subfooter {
-        padding-bottom: 20px;
-        height: 300px;
-        background-color: #eeeeee;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    
-    h5 {
-        margin-bottom: -5px;
-        font-family: "Basier Square Semibold";
-        font-size: 2.5rem;
-        line-height: 2rem;
-        text-transform: lowercase;
-        /* letter-spacing: -1px; */
-        text-align: center;
-        color: #000000;
-    }
-    
-    #subfooter > p {
-        font-family: "Basier Square Regular";
-        font-size: 1rem;
-        line-height: 2rem;
-        text-align: center;
-        color: #000000;
-    }
-    
-    #subfooter > input {
-        width: 30%;
-        margin: 0 auto;
-        text-align: center;
-    }
-    
-    #submit-email{
-        background-color: #00ff99;
-        border: 3px solid #000000;
-        height: 50px;
-        width: 125px;
-        margin: 20px 0;
-        font-family: "Basier Square Semibold";
-        font-size: 1rem;
-        line-height: 2rem;
-        outline: 0;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    
-        #submit-email:hover {
-            background-color: #ffba00;
-        }
+        /* selecting all images in the carousel class */
+        #current-reports div {
+        display: none;
+      }
+      
+      /* shows only the first type whatever you select */
+      #current-reports div:first-of-type {
+        display: inline-block;
+      }
     
 /* ============================================================================================ //
 // ============================================================================================ //
@@ -642,6 +265,8 @@ h5 {
 // ============================================================================================ */
     
     footer.general {
+        width: 100%;
+        position: fixed;
         bottom: 0;
         padding: 20px 0;
         background-color: #000000;
@@ -650,11 +275,11 @@ h5 {
         line-height: 2rem;
         text-align: center;
         color: #eeeeee;
-        display: inline;
     }      
     
     footer.phone {
         width: 100%;
+        position: fixed;
         bottom: 0;
         padding: 20px 0;
         background-color: #000000;
@@ -664,5 +289,31 @@ h5 {
         text-align: center;
         color: #eeeeee;
         display: none;
+    }
+
+/* this web app was made with determination and a mac.
+keep calm and clear or mostly sunny. */
+
+@media (max-width: 1355px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    h1 {
+        font-size: 5rem;
+        line-height: 4rem;
+    }
+
+    footer {
+        display: none;
+    }
+
+    main {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 }
