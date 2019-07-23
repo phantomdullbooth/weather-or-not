@@ -12,11 +12,11 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $header = $('<header>') // HEADER CREATED
     $header.appendTo('body') // HEADER ADDED TO BODY
 
-    const $h1Container = $('<div>').attr('id', 'h1-container') // CONTAINER FOR TITLE CREATED
-    $h1Container.appendTo($header)
+    // const $h1Container = $('<div>').attr('id', 'h1-container') // CONTAINER FOR TITLE CREATED
+    // $h1Container.appendTo($header)
 
     const $h1 = $('<h1>').html('weather <br>or not').attr('id', 'weather-general') // APP TITLE
-    $h1.appendTo($h1Container) // APP TITLE ADDED TO HEADER
+    $h1.appendTo($header) // APP TITLE ADDED TO HEADER
 
     // const $h1Mobile = $('<h1>').html('weather or not').attr('id', 'weather-phone') // APP TITLE
     // $h1Mobile.appendTo($h1Container) // APP TITLE ADDED TO HEADER
@@ -56,7 +56,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $buttonCities = $('<button>').attr({ // BUTTON FOR SUBMITTING LOCATIONS
         'type': 'submit',
         'value': 'submit-cities',
-        'id': 'submit-cities-button'
+        'id': 'lets-go'
     }).text('let\'s go') // TEXT ON BUTTON; LET'S GO + ARROW
 
     const $buttonCitiesIcon = $('<img>').attr({ // ARROW ICON ON CITIES BUTTON
@@ -75,9 +75,13 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $main = $('<main>') // CREATED MAIN CONTENT CONTAINER
     $main.appendTo('body')  // ADDED TO THE BODY, BELOW HEADER
 
+    const $h1main = $('<h2>').css({ 'text-align': 'center', 'margin': '0 20%', 'line-height': '8rem' })
+    $h1main.appendTo($main)
+
     // ========== LEFT ARROW
 
     const $arrowBack = $('<div>').addClass('nav-arrow') // CREATED LEFT ARROW CONTAINER
+    $arrowBack.hide()
     $arrowBack.appendTo($main) // ADDED TO MAIN
 
     const $arrowBackIcon = $('<img>').attr({ // CREATED LEFT ARROW
@@ -89,9 +93,27 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $arrowBackLabel = $('<p>').attr('id', 'nav-arrow-back').text('back')
     $arrowBackLabel.appendTo($arrowBack)
 
+    // ====================================================================== FORECAST CAROUSEL
+
+    const $currentReports = $('<div>').attr('id', 'current-reports')
+    $currentReports.appendTo($main)
+
+    // ======== CITY 1 ========= //
+    const $report1 = $('<div>').addClass('forecast')
+    $report1.appendTo($currentReports)
+
+    // ======== CITY 2 ========= //
+    const $report2 = $('<div>').addClass('forecast')
+    $report2.appendTo($currentReports)
+
+    // ======== SUMMARY ========= //
+    const $report3 = $('<div>').addClass('forecast')
+    $report3.appendTo($currentReports)
+
     // ========== RIGHT ARROW
 
     const $arrowNext = $('<div>').addClass('nav-arrow') // CREATED RIGHT ARROW CONTAINER
+    $arrowNext.hide()
     $arrowNext.appendTo($main) // ADDED TO MAIN
 
     const $arrowNextIcon = $('<img>').attr({ // CREATED RIGHT ARROW
@@ -103,124 +125,41 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $arrowNextLabel = $('<p>').attr('id', 'back-arrow-label').text('next')
     $arrowNextLabel.prependTo($arrowNext)
 
-    // ========== FORECAST CAROUSEL
-    // ========== FORECAST CAROUSEL
-    // ========== FORECAST CAROUSEL
+    // ====================================================================== FORECAST CAROUSEL
+    // ====================================================================== FORECAST CAROUSEL
 
-    const $forecaster = $('<div>').attr('id', 'forecaster')
-    $forecaster.prependTo($arrowNext)
 
-    // ======== CITY 1 ========= //
-
-    const $forecast1 = $('<div>').addClass('forecast')
-    $forecast1.appendTo($forecaster)
-
-    const $forecasterLeft1 = $('<div>').addClass('weather-icon')
-    $forecasterLeft1.appendTo($forecast1)
-
-    const $forecasterRight1 = $('<div>').addClass('weather-info')
-    $forecasterRight1.appendTo($forecast1)
-
-    // ======== CITY 2 ========= //
-
-    const $forecast2 = $('<div>').addClass('forecast')
-    $forecast2.appendTo($forecaster)
-
-    const $forecasterLeft2 = $('<div>').addClass('weather-icon')
-    $forecasterLeft2.appendTo($forecast2)
-
-    const $forecasterRight2 = $('<div>').addClass('weather-info')
-    $forecasterRight2.appendTo($forecast2)
-
-    // ======== SUMMARY ========= //
-
-    const $forecast3 = $('<div>').addClass('forecast')
-    $forecast3.appendTo($forecaster)
-
-    const $forecasterLeft3 = $('<div>').addClass('weather-icon')
-    $forecasterLeft3.appendTo($forecast3)
-
-    const $forecasterRight3 = $('<div>').addClass('weather-info')
-    $forecasterRight3.appendTo($forecast3)
-
-    // ========== BACK BUTTON INFORMATION
+    // ========== BUTTON INFORMATION
 
     let currentCityIndex = 0
-    let $currentCity = $forecaster.children().eq(currentCityIndex)
-    let numberOfMessages = $forecaster.children().eq(currentCityIndex)
+    let $currentCity = $currentReports.children().eq(currentCityIndex)
+    let numberOfMessages = $currentReports.children().length - 1
 
-    const $next = $('#nav-arrow-next') // next button
-    const $previous = $('#nav-arrow-back') // previous button
-
-    // ======================
-    // EVENT LISTENER/HANDLER
-    // ======================
 
     $arrowNextIcon.on('click', () => { // next button
-        $currentCity.hide() // hiding the current image
-        // check if the currentCityIndex is less than the amount of images we have
+        $currentCity.hide()
         if (currentCityIndex < numberOfMessages) {
-            // increment current image index
-            currentCityIndex++
-        } else { // if the currentCityIndex > the amount of images we have
-            // reset the currentCityIndex to 0, so we cycle back
+            currentCityIndex += 1
+        } else {
             currentCityIndex = 0
         }
-        // change the currentCity
-        $currentCity = $('#forecaster').children().eq(currentCityIndex)
+        $currentCity = $($currentReports).children().eq(currentCityIndex)
         // show the new currentCity
         $currentCity.show()
     })
 
-    // previous button
     $arrowBackIcon.on('click', () => {
-        // hide the current image
         $currentCity.hide()
-        // check if the currentCityIndex > 0
         if (currentCityIndex > 0) {
-            // decrement the current image index
-            currentCityIndex--
-        } else { // if the currentCityIndex < 0, reset the currentCityIndex to the numberOfMessages
+            currentCityIndex -= 1
+        } else {
             currentCityIndex = numberOfMessages
         }
-        // change the currentCity
-        $currentCity = $('#forecaster').children().eq(currentCityIndex)
-        // show the new currentCity
+        $currentCity = $($currentReports).children().eq(currentCityIndex)
         $currentCity.show()
     })
-    // ============================================================================================ //
-    // ============================================================================================ //
-    // BELOW //// CONTAINS INFORMATION ON THE WEATHER-OR-NOTE
-    // ============================================================================================ //
-    // ============================================================================================ //
 
-    const $below = $('<div>').attr('id', 'below') // CREATED SECTION BELOW THE MAIN
-    $below.appendTo('body') // BELOW ADDED TO BODY
-
-    const $belowTitle = $('<h4>').text('need a reminder?')
-    $belowTitle.appendTo($below)
-
-    const $belowInfo = $('<p>').text('Send yourself a weather or note.')
-    $belowInfo.appendTo($below)
-
-    const $belowEmail = $('<input>').attr({
-        'type': 'text',
-        'placeholder': 'what\'s your email?'
-    })
-    $belowEmail.appendTo($below)
-
-    const $buttonEmail = $('<button>').attr({
-        'type': 'submit',
-        'value': 'submit-email',
-        'id': 'submit-email'
-    }).text('send')
-
-    const $buttonPlaneEmail = $('<img>').attr({
-        'src': 'images/email.png',
-        'id': 'button-email'
-    })
-    $buttonPlaneEmail.appendTo($buttonEmail)
-    $buttonEmail.appendTo($below)
+    console.log(numberOfMessages)
 
     // ============================================================================================ //
     // ============================================================================================ //
@@ -243,109 +182,216 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     // ============================================================================================ //
     // ============================================================================================ //
 
-    $('#submit-cities-button').on('click', (event) => { // submit location on click
-        event.stopPropagation(); // prevent page from reloading;
+    // ========== WEATHER & OR-NOT ICONS    
+    const $iconClear = $('<img>').attr({ 'src': 'images/weather/clear.png', 'id': 'sky-conditions' })
+    const $iconCloudy = $('<img>').attr({ 'src': 'images/weather/cloudy-part.png', 'id': 'sky-conditions' })
+    const $iconCoffee = $('<img>').attr({ 'src': 'images/or-not/coffee.png', 'id': 'sky-conditions' })
+    const $iconCrystalBall = $('<img>').attr({ 'src': 'images/or-not/crystal-ball.png', 'id': 'sky-conditions' })
+    const $iconDrink = $('<img>').attr({ 'src': 'images/or-not/drink.png', 'id': 'sky-conditions' })
+    const $iconDrizzleMist = $('<img>').attr({ 'src': 'images/weather/drizzle-mist.png', 'id': 'sky-conditions' })
+    const $iconDustSandAsh = $('<img>').attr({ 'src': 'images/weather/dust-sand-ash.png', 'id': 'sky-conditions' })
+    const $iconFog = $('<img>').attr({ 'src': 'images/weather/fog-haze.png', 'id': 'sky-conditions' })
+    const $iconRain = $('<img>').attr({ 'src': 'images/weather/rain.png', 'id': 'sky-conditions' })
+    const $iconShorts = $('<img>').attr({ 'src': 'images/or-not/shorts.png', 'id': 'sky-conditions' })
+    const $iconSmoke = $('<img>').attr({ 'src': 'images/weather/smoky.png', 'id': 'sky-conditions' })
+    const $iconSnow = $('<img>').attr({ 'src': 'images/weather/snow.png', 'id': 'sky-conditions' })
+    const $iconStorm = $('<img>').attr({ 'src': 'images/weather/thunderstorm.png', 'id': 'sky-conditions' })
+    const $iconSwimwear = $('<img>').attr({ 'src': 'images//or-not/swimwear.png', 'id': 'sky-conditions' })
+    const $iconTornado = $('<img>').attr({ 'src': 'images/weather/tornado.png', 'id': 'sky-conditions' })
 
-        let cityStart = $('input[name="from-city-answer"]').val(); // answers to the 'where from?'
-        let cityEnd = $('input[name="to-city-answer"]').val(); // answers to the 'where from?'
+    let atlanta = 4180439;
 
-        cityStart = 4740328;
-        cityEnd = 5873095;
+    $.ajax({
+        url: "https://api.openweathermap.org/data/2.5/group?id=" + atlanta + "&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
+    }).then(
+        (data) => {
+            ///// ATLANTA /////
+            const skyConditionsA = data.list[0].weather[0].main; // cloud conditions
+            const currentTempA = Math.round(data.list[0].main.temp); // current temperature
+            let weathering1;
+
+            if (skyConditionsA === "Clouds") {
+                weatheringA = "partly cloudy";
+            } else if (skyConditionsA === "Clear") {
+                weatheringA = "clear"
+            } else if (skyConditionsA === "Thunderstorm") {
+                weatheringA = "storming"
+            } else if (skyConditionsA === "Rain") {
+                weatheringA = "raining"
+            } else if (skyConditionsA === "Drizzle") {
+                weatheringA = "drizzling"
+            } else if (skyConditionsA === "Mist") {
+                weatheringA = "misty"
+            } else if (skyConditionsA === "Haze") {
+                weatheringA = "hazy"
+            } else if (skyConditionsA === "Snow") {
+                weatheringA = "snowing"
+            } else if (skyConditionsA === "Smoke") {
+                weatheringA = "smoky"
+            } else if (skyConditionsA === "Dust") {
+                weatheringA = "dusty"
+            } else if (skyConditionsA === "Sand") {
+                weatheringA = "sand"
+            } else if (skyConditionsA === "Ash") {
+                weatheringA = "there's volcanic ash"
+            } else if (skyConditionsA === "Squall") {
+                weatheringA = "super frickin' windy"
+            } else if (skyConditionsA === "Tornado") {
+                weatheringA = "there's a tornado watch"
+            } else {
+                weatheringA = "who knows"
+            }
+
+            $h1main.text('howdy from atlanta, where it\'s ' + currentTempA + '°F and ' + weatheringA)
+            console.log(atlanta + ": " + skyConditionsA + ", " + currentTempA)
+        },
+        () => {
+            console.log('coming back foggy. try again')
+        })
+
+    $('#lets-go').on('click', (event) => { // submit location on click
+        event.preventDefault(); // prevent page from reloading;
+
+        $arrowNext.show()
+        $arrowBack.show()
+        $h1main.hide()
+
+        let zipStart = $('input[name="from-city-answer"]').val(); // answers to the 'where from?'
+        let zipEnd = $('input[name="to-city-answer"]').val(); // answers to the 'where from?'
 
         $.ajax({
-            url: "https://api.openweathermap.org/data/2.5/group?id=" + cityStart + "," + cityEnd + "&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
+            url: "https://api.openweathermap.org/data/2.5/weather?zip=" + zipStart + ",us&appid=052b6765bf73ea440e9f314c5808f645"
         }).then(
             (data) => {
-                const $cloudsImg = $('<img>').attr({ 'src': 'images/weather/cloudy-part.png', 'id': 'weather-icon-image' })
-                const $clearImg = $('<img>').attr({ 'src': 'images/weather/clear.png', 'id': 'weather-icon-image' })
-                const $thunderstormImg = $('<img>').attr({ 'src': 'images/weather/thunderstorm.png', 'id': 'weather-icon-image' })
-                const $rainImg = $('<img>').attr({ 'src': 'images/weather/rain.png', 'id': 'weather-icon-image' })
-                const $drizzleImg = $('<img>').attr({ 'src': 'images/weather/drizzle-mist.png', 'id': 'weather-icon-image' })
-                const $fogImg = $('<img>').attr({ 'src': 'images/weather/fog-haze.png', 'id': 'weather-icon-image' })
-                const $crystalBall = $('<img>').attr({'src': 'images/or-not/crystal-ball.png'})
-                
-                
                 ///// CITY 1 /////
-                const skyConditions1 = data.list[0].weather[0].main; // cloud conditions
-                const currentTemp1 = Math.round(data.list[0].main.temp); // current temperature
-                const city1 = data.list[0].name; // current temperature
+                const skyConditions1 = data.weather[0].main; // cloud conditions
+                const currentTemp1 = Math.round(data.main.temp); // current temperature
+                const city1 = data.name; // current temperature
                 let weathering1;
+                console.log(skyConditions1)
 
                 if (skyConditions1 === "Clouds") {
                     weathering1 = "partly cloudy";
-                    $cloudsImg.appendTo($forecasterLeft1)
+                    $iconCloudy.appendTo($report1)
                 } else if (skyConditions1 === "Clear") {
                     weathering1 = "clear";
-                    $clearImg.appendTo($forecasterLeft1)
+                    $iconClear.appendTo($report1)
                 } else if (skyConditions1 === "Thunderstorm") {
                     weathering1 = "storming"
-                    $thunderstormImg.appendTo($forecasterLeft1)
+                    $iconStorm.appendTo($report1)
                 } else if (skyConditions1 === "Rain") {
                     weathering1 = "raining"
-                    $rainImg.appendTo($forecasterLeft1)
+                    $iconRain.appendTo($report1)
                 } else if (skyConditions1 === "Drizzle") {
                     weathering1 = "drizzling"
-                    $drizzleImg.appendTo($forecasterLeft1)
+                    $iconDrizzleMist.appendTo($report1)
                 } else if (skyConditions1 === "Mist") {
                     weathering1 = "misty"
-                    $drizzleImg.appendTo($forecasterLeft1)
+                    $iconDrizzleMist.appendTo($report1)
                 } else if (skyConditions1 === "Haze") {
                     weathering1 = "hazy"
-                    $fogImg.appendTo($forecasterLeft1)
+                    $iconFog.appendTo($report1)
+                } else if (skyConditions1 === "Snow") {
+                    weathering2 = "snowing"
+                    $iconSnow.appendTo(report1)
+                } else if (skyConditions1 === "Smoke") {
+                    weathering1 = "smoky"
+                    $iconSmoke.appendTo($report1)
+                } else if (skyConditions1 === "Dust") {
+                    weathering1 = "dusty"
+                    $iconDustSandAsh.appendTo($report1)
+                } else if (skyConditions1 === "Sand") {
+                    weathering1 = "sandy"
+                    $iconDustSandAsh.appendTo($report1)
+                } else if (skyConditions1 === "Ash") {
+                    weathering1 = "there's volcanic ash"
+                    $iconFog.appendTo($report1)
+                } else if (skyConditions1 === "Squall") {
+                    weathering1 = "super frickin' windy"
+                    $iconFog.appendTo($report1)
+                } else if (skyConditions1 === "Tornado") {
+                    weathering1 = "there's a tornado watch"
+                    $iconTornado.appendTo($report1)
                 } else {
                     const $noData = $('<h3>').text("We're channeling Miss Cleo and everything's coming back foggy. Try again later.")
-                    $noData.appendTo($forecasterRight1)
-                    $crystalBall.appendTo($forecasterLeft1)
+                    $noData.appendTo($report1)
+                    $iconCrystalBall.appendTo($report1)
                 }
 
-                ///// CITY 2 /////
-                const skyConditions2 = data.list[1].weather[0].main; // cloud conditions
-                console.log(skyConditions2)
-                const currentTemp2 = Math.round(data.list[1].main.temp); // current temperature
-                const city2 = data.list[1].name; // current temperature
-                let weathering2;
+                $.ajax({
+                    url: "https://api.openweathermap.org/data/2.5/weather?zip=" + zipEnd + ",us&appid=052b6765bf73ea440e9f314c5808f645"
+                }).then(
+                    (data) => {
 
-                if (skyConditions2 === "Clouds") {
-                    weathering2 = "partly cloudy";
-                    $cloudsImg.appendTo($forecasterLeft2)
-                } else if (skyConditions2 === "Clear") {
-                    weathering2 = "clear";
-                    $clearImg.appendTo($forecasterLeft2)
-                } else if (skyConditions2 === "Thunderstorm") {
-                    weathering2 = "storming"
-                    $thunderstormImg.appendTo($forecasterLeft2)
-                } else if (skyConditions2 === "Rain") {
-                    weathering2 = "raining"
-                    $rainImg.appendTo($forecasterLeft2)
-                } else if (skyConditions2 === "Drizzle") {
-                    weathering2 = "drizzling"
-                    $drizzleImg.appendTo($forecasterLeft2)
-                } else if (skyConditions2 === "Mist") {
-                    weathering2 = "misty"
-                    $drizzleImg.appendTo($forecasterLeft2)
-                } else if (skyConditions2 === "Haze") {
-                    weathering2 = "hazy"
-                    $fogImg.appendTo($forecasterLeft2)
-                } else {
-                    const $noData = $('<h3>').text("We're channeling Miss Cleo and everything's coming back foggy. Try again later.")
-                    $noData.appendTo($forecasterRight2)
-                    $crystalBall.appendTo($forecasterLeft2)
-                }
+                        ///// CITY 2 /////
+                        const skyConditions2 = data.weather[0].main; // cloud conditions
+                        const currentTemp2 = Math.round(data.main.temp); // current temperature
+                        const city2 = data.name; // current temperature
+                        let weathering2;
 
-                ///// OR NOT /////
-                // if (currentTemp1)
+                        if (skyConditions2 === "Clouds") {
+                            weathering2 = "partly cloudy";
+                            $iconCloudy.appendTo($report2)
+                        } else if (skyConditions2 === "Clear") {
+                            weathering2 = "clear";
+                            $iconClear.appendTo($report2)
+                        } else if (skyConditions2 === "Thunderstorm") {
+                            weathering2 = "storming"
+                            $iconStorm.appendTo($report2)
+                        } else if (skyConditions2 === "Rain") {
+                            weathering2 = "raining"
+                            $iconRain.appendTo($report2)
+                        } else if (skyConditions2 === "Drizzle") {
+                            weathering2 = "drizzling"
+                            $iconDrizzleMist.appendTo($report2)
+                        } else if (skyConditions2 === "Mist") {
+                            weathering2 = "misty"
+                            $iconDrizzleMist.appendTo($report2)
+                        } else if (skyConditions2 === "Haze") {
+                            weathering2 = "hazy"
+                            $iconFog.appendTo($report2)
+                        } else if (skyConditions2 === "Snow") {
+                            weathering2 = "snowing"
+                            $iconSnow.appendTo(report2)
+                        } else if (skyConditions2 === "Smoke") {
+                            weathering1 = "smoky"
+                            $iconSmoke.appendTo($report2)
+                        } else if (skyConditions2 === "Dust") {
+                            weathering1 = "dusty"
+                            $iconDustSandAsh.appendTo($report2)
+                        } else if (skyConditions2 === "Sand") {
+                            weathering1 = "sandy"
+                            $iconDustSandAsh.appendTo($report2)
+                        } else if (skyConditions2 === "Ash") {
+                            weathering1 = "there's volcanic ash"
+                            $iconFog.appendTo($report2)
+                        } else if (skyConditions2 === "Squall") {
+                            weathering1 = "super frickin' windy"
+                            $iconFog.appendTo($report2)
+                        } else if (skyConditions2 === "Tornado") {
+                            weathering1 = "there's a tornado watch"
+                            $iconTornado.appendTo($report2)
+                        } else {
+                            const $noData = $('<h3>').text("We're channeling Miss Cleo and everything's coming back foggy. Try again later.")
+                            $noData.appendTo($report2)
+                            $iconCrystalBall.appendTo($report2)
+                        }
 
-                let $weatherInfo1 = $('<h3>').html("#rn it's " + currentTemp1 + "°F and " + weathering1 + " in " + city1 + ". <p> next up: " + city2 + ".");
-                $weatherInfo1.appendTo($forecasterRight1)
+                        let $reportText1 = $('<h3>').addClass('report-text').html("#rn it's " + currentTemp1 + "°F and " + weathering1 + " in " + city1 + ". <p>next up: " + city2 + ".");
+                        $reportText1.appendTo($report1)
 
-                let $weatherInfo2 = $('<h2>').html("#rn it's " + currentTemp2 + "°F and " + weathering2 + " in " + city2 + ". <p> next up: " + "or not.");
-                $weatherInfo2.appendTo($forecasterRight2)
+                        let $reportText2 = $('<h3>').addClass('report-text').html("#rn it's " + currentTemp2 + "°F and " + weathering2 + " in " + city2 + ". <p>next up: " + "recap.");
+                        $reportText2.appendTo($report2)
 
-                console.log(city1 + ": " + skyConditions1 + ", " + currentTemp1)
-                console.log(city2 + ": " + skyConditions2 + ", " + currentTemp2)
-            },
-            () => {
-                console.log('coming back foggy. try again')
+                        let $reportText3 = $('<h3>').addClass('report-text').html("#rn it's " + currentTemp2 + "°F and " + weathering2 + " in " + city2 + ". <p>next up: " + "recap.");
+                        $reportText3.appendTo($report3)
+
+                        console.log(city1 + ": " + skyConditions1 + ", " + currentTemp1)
+                        console.log(city2 + ": " + skyConditions2 + ", " + currentTemp2)
+                    },
+                    () => {
+                        console.log('coming back foggy. try again')
+                    })
             })
 
     }) // END OF #SUBMIT-LOCATION BUTTON CLICK; DO NOT ERASE
@@ -357,5 +403,3 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
 // ============================================================================================ //
 
 // 052b6765bf73ea440e9f314c5808f645
-
-// "It's currently " + weathering1 " in " + userStart + "

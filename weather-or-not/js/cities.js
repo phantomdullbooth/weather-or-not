@@ -530,7 +530,7 @@ const cities = [
 [ id: 5297410, name: "Harrington Place", coord: [ lon:-110.546738, lat:32.04258} ],
 [ id: 5236279, name: "Franklin County", coord: [ lon:-72.866249, lat:44.850052} ],
 [ id: 5235775, name: "East Richford", coord: [ lon:-72.58596, lat:45.011162} ],
-[ id: 5302611, name: " lone Butte Ranch", coord: [ lon:-112.047089, lat:33.232552} ],
+[ id: 5302611, name: "lone Butte Ranch", coord: [ lon:-112.047089, lat:33.232552} ],
 [ id: 4108996, name: "Drew County", coord: [ lon:-91.716797, lat:33.600109} ],
 [ id: 4116526, name: "Jerome", coord: [ lon:-91.470123, lat:33.399559} ],
 [ id: 4217625, name: "Putnam County", coord: [ lon:-83.349876, lat:33.333469} ],
