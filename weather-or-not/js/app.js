@@ -75,7 +75,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $main = $('<main>') // CREATED MAIN CONTENT CONTAINER
     $main.appendTo('body')  // ADDED TO THE BODY, BELOW HEADER
 
-    const $h1main = $('<h2>').css({ 'text-align': 'center', 'margin': '0 20%', 'line-height': '8rem' })
+    const $h1main = $('<h2>').css({ 'text-align': 'center', 'margin': '0 20%', 'line-height': '4rem' })
     $h1main.appendTo($main)
 
     // ========== LEFT ARROW
@@ -250,17 +250,18 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         })
 
     $('#lets-go').on('click', (event) => { // submit location on click
-        event.preventDefault(); // prevent page from reloading;
+        event.stopPropagation(); // prevent page from reloading;
+
 
         $arrowNext.show()
         $arrowBack.show()
         $h1main.hide()
 
-        let zipStart = $('input[name="from-city-answer"]').val(); // answers to the 'where from?'
-        let zipEnd = $('input[name="to-city-answer"]').val(); // answers to the 'where from?'
+        let cityStart = $('input[name="from-city-answer"]').val(); // answers to the 'where from?'
+        let cityEnd = $('input[name="to-city-answer"]').val(); // answers to the 'where from?'
 
         $.ajax({
-            url: "https://api.openweathermap.org/data/2.5/weather?zip=" + zipStart + ",us&appid=052b6765bf73ea440e9f314c5808f645"
+            url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityStart + ",us&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
         }).then(
             (data) => {
                 ///// CITY 1 /////
@@ -319,7 +320,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
                 }
 
                 $.ajax({
-                    url: "https://api.openweathermap.org/data/2.5/weather?zip=" + zipEnd + ",us&appid=052b6765bf73ea440e9f314c5808f645"
+                    url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityEnd + ",us&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
                 }).then(
                     (data) => {
 
@@ -383,8 +384,27 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
                         let $reportText2 = $('<h3>').addClass('report-text').html("#rn it's " + currentTemp2 + "°F and " + weathering2 + " in " + city2 + ". <p>next up: " + "recap.");
                         $reportText2.appendTo($report2)
 
-                        let $reportText3 = $('<h3>').addClass('report-text').html("#rn it's " + currentTemp2 + "°F and " + weathering2 + " in " + city2 + ". <p>next up: " + "recap.");
-                        $reportText3.appendTo($report3)
+                        ///// RECAP INFORMATION /////
+
+                        if ((currentTemp1 & currentTemp2) > 90) {
+                            let $reportText3 = $('<h3>').addClass('report-text').text("you should go jump in a pool or something. it's pretty hot");
+                            $reportText3.appendTo($report3)
+                        } else if ((skyConditions1 || skyconditions2) === "Rain") {
+                            let $reportText3 = $('<h3>').addClass('report-text').text("you definitely want to make sure you take an umbrella with you");
+                            $reportText3.appendTo($report3)
+                        } else if ((currentTemp1 || currentTemp2) > 60) {
+                            let $reportText3 = $('<h3>').addClass('report-text').text("it's pretty nice outside. you should go enjoy yourself.");
+                            $reportText3.appendTo($report3)
+                        } else if ((currentTemp1 || currentTemp2) < 60) {
+                            let $reportText3 = $('<h3>').addClass('report-text').text("it's kinda cold out there. take a jacket or coat!");
+                            $reportText3.appendTo($report3)
+                        } else {
+                            let $reportText3 = $('<h3>').addClass('report-text').text("i'll let you decide what to do!");
+                            $reportText3.appendTo($report3)
+                        }
+
+
+                        
 
                         console.log(city1 + ": " + skyConditions1 + ", " + currentTemp1)
                         console.log(city2 + ": " + skyConditions2 + ", " + currentTemp2)
@@ -392,8 +412,8 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
                     () => {
                         console.log('coming back foggy. try again')
                     })
-            })
 
+            })
     }) // END OF #SUBMIT-LOCATION BUTTON CLICK; DO NOT ERASE
 
     // ============================================================================================ //
