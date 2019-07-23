@@ -294,7 +294,7 @@ main {
 /* this web app was made with determination and a mac.
 keep calm and clear or mostly sunny. */
 
-@media (max-width: 1355px) {
+@media screen and (max-width: 1355px) {
     header {
         display: flex;
         flex-direction: column;
