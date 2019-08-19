@@ -265,37 +265,27 @@ main {
 // ============================================================================================ //
 // ============================================================================================ */
     
-    footer.general {
+    footer {
+        background-color: #000000;
         width: 100%;
         position: fixed;
         bottom: 0;
         padding: 20px 0;
-        background-color: #000000;
         font-family: "Basier Square Regular";
         font-size: 1rem;
         line-height: 2rem;
         text-align: center;
         color: #eeeeee;
-    }      
-    
-    footer.phone {
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        padding: 20px 0;
-        background-color: #000000;
-        font-family: "Basier Square Regular";
-        font-size: 1rem;
-        line-height: 2rem;
-        text-align: center;
-        color: #eeeeee;
-        display: none;
+    }
+
+    .break {
+        display: inline;
     }
 
 /* this web app was made with determination and a mac.
 keep calm and clear or mostly sunny. */
 
-@media (max-width: 1355px) {
+@media screen and (max-width: 1355px) {
     header {
         display: flex;
         flex-direction: column;
@@ -307,8 +297,13 @@ keep calm and clear or mostly sunny. */
         line-height: 4rem;
     }
 
+    .break {
+        display: block;
+    }
+
     footer {
-        display: none;
+        position: static;
+        padding: 10px 0;
     }
 
     main {

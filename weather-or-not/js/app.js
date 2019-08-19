@@ -167,14 +167,9 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     // ============================================================================================ //
     // ============================================================================================ //
 
-    const $footerPhone = $('<footer>').addClass('phone')
-    $footerPhone.html('this app was made with determination and a mac. <br>keep calm and clear or mostly sunny.')
-    $footerPhone.appendTo('body') // <br> inserted for line break on mobile
-
-    const $footerGeneral = $('<footer>').addClass('general') ///// GENERAL ///// GENERAL /////
-    $footerGeneral.text('this app was made with determination and a mac. keep calm and clear or mostly sunny.')
-    $footerGeneral.appendTo('body') // general version does not have a line break
-
+    const $footer = $('<footer>')
+    $footer.html('this app was made with determination and a mac. <span class="break">keep calm and clear or mostly sunny.')
+    $footer.appendTo('body')
 
     // ============================================================================================ //
     // ============================================================================================ //
