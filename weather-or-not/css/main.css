@@ -316,5 +316,6 @@ keep calm and clear or mostly sunny. */
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        height: 1050px;
     }
 }

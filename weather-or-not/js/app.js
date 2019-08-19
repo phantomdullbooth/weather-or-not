@@ -182,68 +182,70 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     // ============================================================================================ //
     // ============================================================================================ //
 
-    // ========== WEATHER & OR-NOT ICONS    
+    // ========== ICON GLOSSARY
     const $iconClear = $('<img>').attr({ 'src': 'images/weather/clear.png', 'id': 'sky-conditions' })
     const $iconCloudy = $('<img>').attr({ 'src': 'images/weather/cloudy-part.png', 'id': 'sky-conditions' })
-    const $iconCoffee = $('<img>').attr({ 'src': 'images/or-not/coffee.png', 'id': 'sky-conditions' })
-    const $iconCrystalBall = $('<img>').attr({ 'src': 'images/or-not/crystal-ball.png', 'id': 'sky-conditions' })
-    const $iconDrink = $('<img>').attr({ 'src': 'images/or-not/drink.png', 'id': 'sky-conditions' })
     const $iconDrizzleMist = $('<img>').attr({ 'src': 'images/weather/drizzle-mist.png', 'id': 'sky-conditions' })
     const $iconDustSandAsh = $('<img>').attr({ 'src': 'images/weather/dust-sand-ash.png', 'id': 'sky-conditions' })
     const $iconFog = $('<img>').attr({ 'src': 'images/weather/fog-haze.png', 'id': 'sky-conditions' })
     const $iconRain = $('<img>').attr({ 'src': 'images/weather/rain.png', 'id': 'sky-conditions' })
-    const $iconShorts = $('<img>').attr({ 'src': 'images/or-not/shorts.png', 'id': 'sky-conditions' })
     const $iconSmoke = $('<img>').attr({ 'src': 'images/weather/smoky.png', 'id': 'sky-conditions' })
     const $iconSnow = $('<img>').attr({ 'src': 'images/weather/snow.png', 'id': 'sky-conditions' })
     const $iconStorm = $('<img>').attr({ 'src': 'images/weather/thunderstorm.png', 'id': 'sky-conditions' })
-    const $iconSwimwear = $('<img>').attr({ 'src': 'images//or-not/swimwear.png', 'id': 'sky-conditions' })
     const $iconTornado = $('<img>').attr({ 'src': 'images/weather/tornado.png', 'id': 'sky-conditions' })
-
-    let atlanta = 4180439;
+    const $iconCrystalBall = $('<img>').attr({ 'src': 'images/or-not/crystal-ball.png', 'id': 'sky-conditions' })
+    
+    // ==== OTHER ICONS
+    const $iconCoffee = $('<img>').attr({ 'src': 'images/or-not/coffee.png', 'id': 'sky-conditions' })
+    const $iconDrink = $('<img>').attr({ 'src': 'images/or-not/drink.png', 'id': 'sky-conditions' })
+    const $iconShorts = $('<img>').attr({ 'src': 'images/or-not/shorts.png', 'id': 'sky-conditions' })
+    const $iconSwimwear = $('<img>').attr({ 'src': 'images//or-not/swimwear.png', 'id': 'sky-conditions' })
+    
+    let atlanta = 30303;
 
     $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/group?id=" + atlanta + "&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
+        url: "https://api.openweathermap.org/data/2.5/weather?zip=" + atlanta + ",us&units=imperial&appid=052b6765bf73ea440e9f314c5808f645"
     }).then(
         (data) => {
             ///// ATLANTA /////
-            const skyConditionsA = data.list[0].weather[0].main; // cloud conditions
-            const currentTempA = Math.round(data.list[0].main.temp); // current temperature
-            let weathering1;
+            const homeConditions = data.weather[0].main; // cloud conditions
+            const homeTemperature = Math.round(data.main.temp); // current temperature
+            let homeWeather;
 
-            if (skyConditionsA === "Clouds") {
-                weatheringA = "partly cloudy";
-            } else if (skyConditionsA === "Clear") {
-                weatheringA = "clear"
-            } else if (skyConditionsA === "Thunderstorm") {
-                weatheringA = "storming"
-            } else if (skyConditionsA === "Rain") {
-                weatheringA = "raining"
-            } else if (skyConditionsA === "Drizzle") {
-                weatheringA = "drizzling"
-            } else if (skyConditionsA === "Mist") {
-                weatheringA = "misty"
-            } else if (skyConditionsA === "Haze") {
-                weatheringA = "hazy"
-            } else if (skyConditionsA === "Snow") {
-                weatheringA = "snowing"
-            } else if (skyConditionsA === "Smoke") {
-                weatheringA = "smoky"
-            } else if (skyConditionsA === "Dust") {
-                weatheringA = "dusty"
-            } else if (skyConditionsA === "Sand") {
-                weatheringA = "sand"
-            } else if (skyConditionsA === "Ash") {
-                weatheringA = "there's volcanic ash"
-            } else if (skyConditionsA === "Squall") {
-                weatheringA = "super frickin' windy"
-            } else if (skyConditionsA === "Tornado") {
-                weatheringA = "there's a tornado watch"
+            if (homeConditions === "Clouds") {
+                homeWeather = "partly cloudy";
+            } else if (homeConditions === "Clear") {
+                homeWeather = "clear"
+            } else if (homeConditions === "Thunderstorm") {
+                homeWeather = "storming"
+            } else if (homeConditions === "Rain") {
+                homeWeather = "raining"
+            } else if (homeConditions === "Drizzle") {
+                homeWeather = "drizzling"
+            } else if (homeConditions === "Mist") {
+                homeWeather = "misty"
+            } else if (homeConditions === "Haze") {
+                homeWeather = "hazy"
+            } else if (homeConditions === "Snow") {
+                homeWeather = "snowing"
+            } else if (homeConditions === "Smoke") {
+                homeWeather = "smoky"
+            } else if (homeConditions === "Dust") {
+                homeWeather = "dusty"
+            } else if (homeConditions === "Sand") {
+                homeWeather = "sand"
+            } else if (homeConditions === "Ash") {
+                homeWeather = "there's volcanic ash"
+            } else if (homeConditions === "Squall") {
+                homeWeather = "super frickin' windy"
+            } else if (homeConditions === "Tornado") {
+                homeWeather = "there's a tornado watch"
             } else {
-                weatheringA = "who knows"
+                homeWeather = "who knows"
             }
 
-            $h2main.text('howdy from atlanta, where it\'s ' + currentTempA + '°F and ' + weatheringA)
-            console.log(atlanta + ": " + skyConditionsA + ", " + currentTempA)
+            $h2main.html('howdy from atlanta— <br />where it\'s ' + homeTemperature + '°F and ' + homeWeather)
+            console.log(atlanta + ": " + homeConditions + ", " + homeTemperature)
         },
         () => {
             console.log('coming back foggy. try again')
@@ -421,5 +423,3 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
 }) // DOCUMENT.READY /// DO NOT TOUCH ///
 // ============================================================================================ //
 // ============================================================================================ //
-
-// 052b6765bf73ea440e9f314c5808f645
