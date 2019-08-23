@@ -15,7 +15,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     // const $h1Container = $('<div>').attr('id', 'h1-container') // CONTAINER FOR TITLE CREATED
     // $h1Container.appendTo($header)
 
-    const $h1 = $('<h1>').html('weather <br>or not').attr('id', 'weather-general') // APP TITLE
+    const $h1 = $('<h1>').html('weather<br>or not').attr('id', 'weather-general') // APP TITLE
     $h1.appendTo($header) // APP TITLE ADDED TO HEADER
 
     // const $h1Mobile = $('<h1>').html('weather or not').attr('id', 'weather-phone') // APP TITLE
@@ -26,13 +26,10 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $fromCity = $('<div>').addClass('location-input') // DIV CONTAINER FOR FROM LOCATION
     $fromCity.appendTo($header) // FROM CITY DIV ADDED TO HEADER
 
-    // const $fromCityQuestion = $('<h3>').text('where are you now?') // PROMPT FOR FROM CITY
-    // $fromCityQuestion.appendTo($fromCity) // FROM CITY PROMPT ADDED TO FROM CITY DIV
-
     const $fromCityAnswer = $('<input>').attr({ // ANSWER FIELD FOR FROM CITY
         'type': 'text',
         'name': 'from-city-answer',
-        'placeholder': 'where are you now' // VISIBLE TO USERS
+        'placeholder': 'where are you now?' // VISIBLE TO USERS
     })
     $fromCityAnswer.appendTo($fromCity)// FROM CITY ANSWER FIELD ADDED TO FROM CITY DIV
 
@@ -41,13 +38,11 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $toCity = $('<div>').addClass('location-input') // DIV CONTAINER FOR TO LOCATION
     $toCity.appendTo($header) // TO CITY DIV ADDED TO HEADER
 
-    // const $toCityQuestion = $('<h3>').text('where are you going?') // PROMPT FOR TO CITY
-    // $toCityQuestion.appendTo($toCity) // TO CITY PROMPT ADDED TO TO CITY DIV
 
     const $toCityAnswer = $('<input>').attr({ // ANSWER FIELD FOR TO CITY
         'type': 'text',
         'name': 'to-city-answer',
-        'placeholder': 'where are you going' // VISIBLE TO USERS
+        'placeholder': 'where are you going?' // VISIBLE TO USERS
     })
     $toCityAnswer.appendTo($toCity)// TO CITY ANSWER FIELD ADDED TO TO CITY DIV
 
@@ -75,7 +70,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $main = $('<main>') // CREATED MAIN CONTENT CONTAINER
     $main.appendTo('body')  // ADDED TO THE BODY, BELOW HEADER
 
-    const $h2main = $('<h2>').css({ 'text-align': 'center', 'margin': '0 20%', 'line-height': '4.5rem' })
+    const $h2main = $('<h2>').attr('id', 'atlanta')
     $h2main.appendTo($main)
 
     // ========== LEFT ARROW
@@ -239,7 +234,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
                 homeWeather = "who knows"
             }
 
-            $h2main.html('howdy from atlanta— <br />where it\'s ' + homeTemperature + '°F and ' + homeWeather)
+            $h2main.html('Hello from <span class="break">Atlanta</span> — <br /> where it\'s ' + homeTemperature + '°F and ' + homeWeather)
             console.log(atlanta + ": " + homeConditions + ", " + homeTemperature)
         },
         () => {
@@ -311,7 +306,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
                     weathering1 = "there's a tornado watch"
                     $iconTornado.appendTo($report1)
                 } else {
-                    const $noData = $('<h3>').text("We're channeling Miss Cleo and everything's coming back foggy. Try again later.")
+                    const $noData = $('<h2>').text("We're channeling Miss Cleo and everything's coming back foggy. Try again later.")
                     $noData.appendTo($report1)
                     $iconCrystalBall.appendTo($report1)
                 }
@@ -370,33 +365,33 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
                             weathering1 = "there's a tornado watch"
                             $iconTornado.appendTo($report2)
                         } else {
-                            const $noData = $('<h3>').text("We're channeling Miss Cleo and everything's coming back foggy. Try again later.")
+                            const $noData = $('<h2>').text("We're channeling Miss Cleo and everything's coming back foggy. Try again later.")
                             $noData.appendTo($report2)
                             $iconCrystalBall.appendTo($report2)
                         }
 
-                        let $reportText1 = $('<h3>').addClass('report-text').html("#rn it's " + currentTemp1 + "°F and " + weathering1 + " in " + city1 + ". <p>next up: " + city2 + ".").css({ 'font-size': '4rem', 'line-height': '4rem' })
+                        let $reportText1 = $('<h2>').addClass('report-text').html("<span class='rn'>#rn</span> it's " + currentTemp1 + "°F and " + weathering1 + " in " + city1 + ". <p>next up: " + city2 + ".").css({ 'font-size': '4rem', 'line-height': '4rem' })
                         $reportText1.appendTo($report1)
 
-                        let $reportText2 = $('<h3>').addClass('report-text').html("#rn it's " + currentTemp2 + "°F and " + weathering2 + " in " + city2 + ". <p>next up: " + "recap.").css({ 'font-size': '4rem', 'line-height': '4rem' })
+                        let $reportText2 = $('<h2>').addClass('report-text').html("#rn it's " + currentTemp2 + "°F and " + weathering2 + " in " + city2 + ". <p>next up: " + "recap.").css({ 'font-size': '4rem', 'line-height': '4rem' })
                         $reportText2.appendTo($report2)
 
                         ///// RECAP INFORMATION /////
 
                         if ((currentTemp1 & currentTemp2) > 90) {
-                            let $reportText3 = $('<h3>').addClass('report-text').text("you should go jump in a pool or something. it's pretty hot");
+                            let $reportText3 = $('<h2>').addClass('report-text').text("you should go jump in a pool or something. it's pretty hot");
                             $reportText3.appendTo($report3).css({ 'font-size': '4rem', 'line-height': '4rem' })
                         } else if ((skyConditions1 || skyconditions2) === "Rain") {
-                            let $reportText3 = $('<h3>').addClass('report-text').text("you definitely want to make sure you take an umbrella with you");
+                            let $reportText3 = $('<h2>').addClass('report-text').text("you definitely want to make sure you take an umbrella with you");
                             $reportText3.appendTo($report3).css({ 'font-size': '4rem', 'line-height': '4rem' })
                         } else if ((currentTemp1 || currentTemp2) > 60) {
-                            let $reportText3 = $('<h3>').addClass('report-text').text("it's pretty nice outside. you should go enjoy yourself.");
+                            let $reportText3 = $('<h2>').addClass('report-text').text("it's pretty nice outside. you should go enjoy yourself.");
                             $reportText3.appendTo($report3).css({ 'font-size': '4rem', 'line-height': '4rem' })
                         } else if ((currentTemp1 || currentTemp2) < 60) {
-                            let $reportText3 = $('<h3>').addClass('report-text').text("it's kinda cold out there. take a jacket or coat!");
+                            let $reportText3 = $('<h2>').addClass('report-text').text("it's kinda cold out there. take a jacket or coat!");
                             $reportText3.appendTo($report3).css({ 'font-size': '4rem', 'line-height': '4rem' })
                         } else {
-                            let $reportText3 = $('<h3>').addClass('report-text').text("i'll let you decide what to do!");
+                            let $reportText3 = $('<h2>').addClass('report-text').text("i'll let you decide what to do!");
                             $reportText3.appendTo($report3).css({ 'font-size': '4rem', 'line-height': '4rem' })
                         }
 
