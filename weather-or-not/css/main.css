@@ -2,11 +2,19 @@
     border: 1px solid #0044ff;
 } */
 
-/* ============================================================================================ //
-// ============================================================================================ //
-// FONTS /////
-// ============================================================================================ //
-// ============================================================================================ */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    color: #191919;
+}
+
+/* ============================================= //
+// ============================================= //
+// FONTS
+/* ============================================= //
+// ============================================= //
 
 /* BASIER SQUARE REGULAR */
 @font-face {
@@ -19,6 +27,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /* BASIER SQUARE MEDIUM */
 @font-face {
     font-family: 'Basier Square Medium';
@@ -30,6 +39,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /* BASIER SQUARE SEMIBOLD */
 @font-face {
     font-family: 'Basier Square Semibold';
@@ -41,6 +51,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /* BASIER SQUARE BOLD */
 @font-face {
     font-family: 'Basier Square Bold';
@@ -52,11 +63,26 @@
     font-weight: normal;
     font-style: normal;
 }
-    
+
+/* ============================================= //
+// ============================================= //
+// GENERAL TEXT
+// ============================================= //
+// ============================================= */
+
+h1 {
+    font-family: "Basier Square Semibold";
+    font-size: 6rem;
+}
+
+
+
+
+
 h1, h2 {
-    font-family: "Basier Square Bold";
+    
     text-transform: lowercase;
-    color: #000000;
+    
 }
 
 h3, h4 {
@@ -68,11 +94,11 @@ h3, h4 {
 
 h1 {
     order: 1;
-    font-size: 8rem;
+    
     line-height: 6rem;
     letter-spacing: -7px;
     text-align: left;   
-    padding: -50px;  
+    padding: -50px;
 }
 
 h2 {
@@ -94,6 +120,27 @@ h4 {
     text-align: center;
 }
 
+/* ============================================= //
+// ============================================= //
+// INPUT
+// ============================================= //
+// ============================================= */
+
+input {
+    width: 375px;
+    height: 50px;
+    margin: 15px 0;
+    background-color: #ffffff;
+    border: 3px solid #191919;
+    padding: 0 30px;
+    outline: 0;
+}
+
+::placeholder {
+    font-family: "Basier Square Regular";
+    font-size: 1rem;
+}
+
 /* ============================================================================================ //
 // ============================================================================================ //
 // 1600+ PX ///// HEADER // CONTAINS APPLICATION LOGO & LOCATION INPUTS
@@ -102,7 +149,7 @@ h4 {
 
 header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 95%;
@@ -121,27 +168,6 @@ header {
         align-items: baseline;
     }
     
-input {
-    width: 100%;
-    margin: 20 auto;
-    height: 75px;
-    border: none;
-    border-bottom: 5px solid #000000;
-    outline: 0;
-    background-color: rgb(0, 0, 0, 0.0);
-    font-family: "Basier Square Regular";
-    font-size: 2rem;
-    line-height: 1rem;
-    text-align: left;
-    color: #000000;
-}
-    
-    ::placeholder {
-        font-family: "Basier Square Regular";
-        font-size: 2rem;
-        letter-spacing: -1px;
-        color: rgb(0, 0, 0, 0.4);
-    }
 
     /* Code for disappearing placeholder
     retrieved fromm Stanhub:
@@ -284,33 +310,3 @@ main {
 
 /* this web app was made with determination and a mac.
 keep calm and clear or mostly sunny. */
-
-@media screen and (max-width: 1355px) {
-    header {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-    }
-
-    h1 {
-        font-size: 5rem;
-        line-height: 4rem;
-    }
-
-    .break {
-        display: block;
-    }
-
-    footer {
-        position: static;
-        padding: 10px 0;
-    }
-
-    main {
-        background-color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 1050px;
-    }
-}

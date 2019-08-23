@@ -26,13 +26,13 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $fromCity = $('<div>').addClass('location-input') // DIV CONTAINER FOR FROM LOCATION
     $fromCity.appendTo($header) // FROM CITY DIV ADDED TO HEADER
 
-    const $fromCityQuestion = $('<h3>').text('where are you now?') // PROMPT FOR FROM CITY
-    $fromCityQuestion.appendTo($fromCity) // FROM CITY PROMPT ADDED TO FROM CITY DIV
+    // const $fromCityQuestion = $('<h3>').text('where are you now?') // PROMPT FOR FROM CITY
+    // $fromCityQuestion.appendTo($fromCity) // FROM CITY PROMPT ADDED TO FROM CITY DIV
 
     const $fromCityAnswer = $('<input>').attr({ // ANSWER FIELD FOR FROM CITY
         'type': 'text',
         'name': 'from-city-answer',
-        'placeholder': 'city' // VISIBLE TO USERS
+        'placeholder': 'where are you now' // VISIBLE TO USERS
     })
     $fromCityAnswer.appendTo($fromCity)// FROM CITY ANSWER FIELD ADDED TO FROM CITY DIV
 
@@ -41,13 +41,13 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $toCity = $('<div>').addClass('location-input') // DIV CONTAINER FOR TO LOCATION
     $toCity.appendTo($header) // TO CITY DIV ADDED TO HEADER
 
-    const $toCityQuestion = $('<h3>').text('where are you going?') // PROMPT FOR TO CITY
-    $toCityQuestion.appendTo($toCity) // TO CITY PROMPT ADDED TO TO CITY DIV
+    // const $toCityQuestion = $('<h3>').text('where are you going?') // PROMPT FOR TO CITY
+    // $toCityQuestion.appendTo($toCity) // TO CITY PROMPT ADDED TO TO CITY DIV
 
     const $toCityAnswer = $('<input>').attr({ // ANSWER FIELD FOR TO CITY
         'type': 'text',
         'name': 'to-city-answer',
-        'placeholder': 'city' // VISIBLE TO USERS
+        'placeholder': 'where are you going' // VISIBLE TO USERS
     })
     $toCityAnswer.appendTo($toCity)// TO CITY ANSWER FIELD ADDED TO TO CITY DIV
 
@@ -163,7 +163,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
 
     // ============================================================================================ //
     // ============================================================================================ //
-    // FOOTER / CONTAINS TWO VERSIONS DEPENDING ON MOBILE OR MEDIUM/COMPUTER SCREEN
+    // FOOTER
     // ============================================================================================ //
     // ============================================================================================ //
 
@@ -194,7 +194,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     const $iconCoffee = $('<img>').attr({ 'src': 'images/or-not/coffee.png', 'id': 'sky-conditions' })
     const $iconDrink = $('<img>').attr({ 'src': 'images/or-not/drink.png', 'id': 'sky-conditions' })
     const $iconShorts = $('<img>').attr({ 'src': 'images/or-not/shorts.png', 'id': 'sky-conditions' })
-    const $iconSwimwear = $('<img>').attr({ 'src': 'images//or-not/swimwear.png', 'id': 'sky-conditions' })
+    const $iconSwimwear = $('<img>').attr({ 'src': 'images/or-not/swimwear.png', 'id': 'sky-conditions' })
     
     let atlanta = 30303;
 
