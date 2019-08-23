@@ -2,11 +2,11 @@
     border: 1px solid #0044ff;
 } */
 
-/* ============================================================================================ //
-// ============================================================================================ //
-// FONTS /////
-// ============================================================================================ //
-// ============================================================================================ */
+/* ============================================= //
+// ============================================= //
+// FONTS
+// ============================================= //
+// ============================================= */
 
 /* BASIER SQUARE REGULAR */
 @font-face {
@@ -19,6 +19,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /* BASIER SQUARE MEDIUM */
 @font-face {
     font-family: 'Basier Square Medium';
@@ -30,6 +31,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /* BASIER SQUARE SEMIBOLD */
 @font-face {
     font-family: 'Basier Square Semibold';
@@ -41,6 +43,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /* BASIER SQUARE BOLD */
 @font-face {
     font-family: 'Basier Square Bold';
@@ -52,161 +55,173 @@
     font-weight: normal;
     font-style: normal;
 }
-    
-h1, h2 {
-    font-family: "Basier Square Bold";
-    text-transform: lowercase;
-    color: #000000;
-}
 
-h3, h4 {
-    margin-bottom: -5px;
-    font-family: "Basier Square Semibold";
-    text-transform: lowercase;
-    color: #000000;
-}
+/* ============================================= //
+// ============================================= //
+// BODY PARTS
+// ============================================= //
+// ============================================= */
 
-h1 {
-    order: 1;
-    font-size: 8rem;
-    line-height: 6rem;
-    letter-spacing: -7px;
-    text-align: left;   
-    padding: -50px;  
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #191919;
 }
-
-h2 {
-    font-size: 5rem;
-    line-height: 5.5rem;
-    letter-spacing: -2px;
-}
-
-h3 {    
-    font-size: 2rem;
-    line-height: 2rem;
-    letter-spacing: -2px;
-    text-align: center;
-}
-
-h4 {
-    font-size: 2.5rem;
-    line-height: 2rem;
-    text-align: center;
-}
-
-/* ============================================================================================ //
-// ============================================================================================ //
-// 1600+ PX ///// HEADER // CONTAINS APPLICATION LOGO & LOCATION INPUTS
-// ============================================================================================ //
-// ============================================================================================ */
 
 header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 95%;
-    margin: -50px auto;
+    padding-bottom: 50px;
 }
 
-    #header-container {
-        order: 1;
-    }
-
-    .location-input {
-        order: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: baseline;
-    }
-    
-input {
-    width: 100%;
-    margin: 20 auto;
-    height: 75px;
-    border: none;
-    border-bottom: 5px solid #000000;
-    outline: 0;
-    background-color: rgb(0, 0, 0, 0.0);
-    font-family: "Basier Square Regular";
-    font-size: 2rem;
-    line-height: 1rem;
-    text-align: left;
-    color: #000000;
-}
-    
-    ::placeholder {
-        font-family: "Basier Square Regular";
-        font-size: 2rem;
-        letter-spacing: -1px;
-        color: rgb(0, 0, 0, 0.4);
-    }
-
-    /* Code for disappearing placeholder
-    retrieved fromm Stanhub:
-    https://stanhub.com/how-to-remove-the-placeholder-on-focus-css-only/ */
-    input:focus::-webkit-input-placeholder { color:transparent; }
-    input:focus:-moz-placeholder { color:transparent; }
-    /* End code retrieval */    
-    
-    #lets-go {
-        order: 3;
-        margin: 35px 0;
-        width: 125px;
-        height: 50px;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        outline: 0;
-        border: 3px solid #000000;
-        background-color: #00ff99;
-        font-family: "Basier Square Semibold";
-        font-size: 1rem;
-        line-height: 2rem;        
-    }
-
-    #lets-go:hover {
-        background-color: #ffba00;
-    }
-    
-    #button-cities-icon {
-        width: 35px;
-        height: 35px;
-        filter: invert(100%);
-        transform: rotate(180deg)
-    }
-
-/* ============================================================================================ //
-// ============================================================================================ //
-// 1600+ PX ///// MAIN // CONTAINS LEFT AND RIGHT ARROWS & FORECAST CAROUSEL
-// ============================================================================================ //
-// ============================================================================================ */
-    
 main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 600px;
-    padding: 50px 0;
-    margin: 0 auto;
+    height: 50vh;
+    background-color: #cccccc; 
+}
+
+footer {
+    width: 100%;
+    padding: 20px 0;
+    font-family: "Basier Square Regular";
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    background-color: #000000;
+    color: #eeeeee;
+}
+
+/* ============================================= //
+// ============================================= //
+// GENERAL TEXT
+// ============================================= //
+// ============================================= */
+
+/* WEATHER OR NOT */
+h1 {
+    font-family: "Basier Square Medium";
+    font-size: 6rem;
+    letter-spacing: -5px;
+    line-height: 5rem;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+/* MAIN TEXT */
+h2 {
+    font-family: "Basier Square Semibold";
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    line-height: 4.5rem;
+    text-transform: lowercase;
+}
+
+#atlanta {
+    text-align: center;
+    margin: 0 5%;
+}
+
+.break {
+    display: block;
+}
+
+.rn {
+    color: #0044ff;
+}
+
+/* ============================================= //
+// ============================================= //
+// INPUT
+// ============================================= //
+// ============================================= */
+
+.location-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+}
+
+input {
+    width: 350px;
+    height: 50px;
+    margin: 15px 0;
+    background-color: #ffffff;
+    border: 3px solid #191919;
+    padding: 0 20px;
+    outline: 0;
+    font-family: "Basier Square Regular", sans-serif;
+    font-size: 1rem;
+}
+
+::placeholder {
+    font-family: "Basier Square Regular", sans-serif;
+    font-size: 1rem;
+}
+
+/* Code for disappearing placeholder
+retrieved fromm Stanhub:
+https://stanhub.com/how-to-remove-the-placeholder-on-focus-css-only/ */
+input:focus::-webkit-input-placeholder { color: transparent; }
+input:focus:-moz-placeholder { color: transparent; }
+/* End code retrieval */
+
+#lets-go {
     display: flex;
     flex-direction: row;
-    justify-content: center;;
-    align-items: center;   
-    background-color: #e7e7e7; 
+    justify-content: space-evenly;
+    align-items: center;
+    width: 125px;
+    height: 50px;
+    margin: 20px 0;
+    outline: 0;
+    font-family: "Basier Square Semibold";
+    font-size: 1rem;
+    line-height: 2rem;
+    border: 3px solid #000000;
+    background-color: #00ff99;       
 }
+
+#lets-go:hover {
+    background-color: #ffba00;
+}
+
+#button-cities-icon {
+    width: 35px;
+    height: 35px;
+    filter: invert(100%);
+    transform: rotate(180deg)
+}
+
+/* ============================================= //
+// ============================================= //
+// ARROWS
+// ============================================= //
+// ============================================= */
+
+.nav-arrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.nav-arrow p {
+    font-family: "Basier Square Semibold";
+    font-size: 1.75rem;
+}
+
     
-    .nav-arrow {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-    
-    .nav-arrow > p {
-        font-family: "Basier Square Semibold";
-        font-size: 1.75rem;
-        color: #000000;
-    }
     
     #left-arrow {
         width: 75px;
@@ -231,7 +246,7 @@ main {
 
 
     .forecast {
-        margin: 0 20%;
+        margin: 0 10%;
         text-align: center;
     }
 
@@ -258,59 +273,227 @@ main {
       #current-reports div:first-of-type {
         display: inline-block;
       }
-    
-/* ============================================================================================ //
-// ============================================================================================ //
-// 1600+ PX ///// FOOTER
-// ============================================================================================ //
-// ============================================================================================ */
-    
-    footer {
-        background-color: #000000;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        padding: 20px 0;
-        font-family: "Basier Square Regular";
-        font-size: 1rem;
-        line-height: 2rem;
+
+@media screen and (min-width: 1500px) {
+    /* ============================================= //
+    // ============================================= //
+    // GENERAL TEXT (1500)
+    // ============================================= //
+    // ============================================= */
+
+    /* WEATHER OR NOT */
+    h1 {
+        font-family: "Basier Square Medium";
+        font-size: 6rem;
+        letter-spacing: -5px;
+        line-height: 5rem;
         text-align: center;
-        color: #eeeeee;
+        text-transform: lowercase;
+    }
+
+    /* MAIN TEXT */
+    h2 {
+        font-family: "Basier Square Semibold";
+        font-size: 3.5rem;
+        letter-spacing: -2px;
+        line-height: 4.5rem;
+        text-transform: lowercase;
+    }
+
+    #atlanta {
+        text-align: center;
+        margin: 0 5%;
     }
 
     .break {
         display: inline;
     }
 
-/* this web app was made with determination and a mac.
-keep calm and clear or mostly sunny. */
-
-@media screen and (max-width: 1355px) {
+    .rn {
+        color: #0044ff;
+    }
+    
+    /* ============================================================================================ //
+    // ============================================================================================ //
+    // 1600+ PX ///// HEADER // CONTAINS APPLICATION LOGO & LOCATION INPUTS
+    // ============================================================================================ //
+    // ============================================================================================ */
+    
     header {
         display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 95%;
+        margin: -50px auto;
     }
-
-    h1 {
-        font-size: 5rem;
-        line-height: 4rem;
+    
+        #header-container {
+            order: 1;
+        }
+    
+        .location-input {
+            order: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: baseline;
+        }
+        
+    input {
+        width: 100%;
+        margin: 20 auto;
+        height: 75px;
+        border: none;
+        border-bottom: 5px solid #000000;
+        outline: 0;
+        background-color: rgb(0, 0, 0, 0.0);
+        font-family: "Basier Square Regular";
+        font-size: 2rem;
+        line-height: 1rem;
+        text-align: left;
+        color: #000000;
     }
-
-    .break {
-        display: block;
-    }
-
-    footer {
-        position: static;
-        padding: 10px 0;
-    }
-
+        
+        ::placeholder {
+            font-family: "Basier Square Regular";
+            font-size: 2rem;
+            letter-spacing: -1px;
+            color: rgb(0, 0, 0, 0.4);
+        }
+    
+        /* Code for disappearing placeholder
+        retrieved fromm Stanhub:
+        https://stanhub.com/how-to-remove-the-placeholder-on-focus-css-only/ */
+        input:focus::-webkit-input-placeholder { color:transparent; }
+        input:focus:-moz-placeholder { color:transparent; }
+        /* End code retrieval */    
+        
+        #lets-go {
+            order: 3;
+            margin: 35px 0;
+            width: 125px;
+            height: 50px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            outline: 0;
+            border: 3px solid #000000;
+            background-color: #00ff99;
+            font-family: "Basier Square Semibold";
+            font-size: 1rem;
+            line-height: 2rem;        
+        }
+    
+        #lets-go:hover {
+            background-color: #ffba00;
+        }
+        
+        #button-cities-icon {
+            width: 35px;
+            height: 35px;
+            filter: invert(100%);
+            transform: rotate(180deg)
+        }
+    
+    /* ============================================================================================ //
+    // ============================================================================================ //
+    // 1600+ PX ///// MAIN // CONTAINS LEFT AND RIGHT ARROWS & FORECAST CAROUSEL
+    // ============================================================================================ //
+    // ============================================================================================ */
+        
     main {
-        background-color: #ffffff;
+        width: 100%;
+        height: 600px;
+        padding: 50px 0;
+        margin: 0 auto;
         display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 1050px;
+        flex-direction: row;
+        justify-content: center;;
+        align-items: center;   
+        background-color: #e7e7e7; 
     }
+        
+        .nav-arrow {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .nav-arrow > p {
+            font-family: "Basier Square Semibold";
+            font-size: 1.75rem;
+            color: #000000;
+        }
+        
+        #left-arrow {
+            width: 75px;
+            height: 75px;
+            filter: invert(100%)
+        }
+        
+        #nav-arrow-next {
+            width: 75px;
+            height: 75px;
+            filter: invert(100%);
+            transform: rotate(180deg)
+        }
+    
+        /* ========== WEATHER REPORTS */
+        #current-reports {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    
+    
+        .forecast {
+            margin: 0 20%;
+            text-align: center;
+        }
+    
+    
+            #sky-conditions {
+                order: 1;
+                /* width: 20%; */
+                width: 300px;
+                height: 300px;
+            }
+    
+            .report-text {
+                order: 2;
+            }
+    
+            
+        
+            /* selecting all images in the carousel class */
+            #current-reports div {
+            display: none;
+          }
+          
+          /* shows only the first type whatever you select */
+          #current-reports div:first-of-type {
+            display: inline-block;
+          }
+        
+    /* ============================================================================================ //
+    // ============================================================================================ //
+    // 1600+ PX ///// FOOTER
+    // ============================================================================================ //
+    // ============================================================================================ */
+        
+        footer {
+            background-color: #000000;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            padding: 20px 0;
+            font-family: "Basier Square Regular";
+            font-size: 1rem;
+            line-height: 2rem;
+            text-align: center;
+            color: #eeeeee;
+        }
 }
