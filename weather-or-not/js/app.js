@@ -5,48 +5,57 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
 
     // ============================================================================================ //
     // ============================================================================================ //
-    // HEADER //// CONTAINS APPLICATION LOGO & LOCATION INPUTS
+    // HEADER //// WITH APP TITLE
     // ============================================================================================ //
     // ============================================================================================ //
 
-    const $header = $('<header>') // HEADER CREATED
-    $header.appendTo('body') // HEADER ADDED TO BODY
+    // HEADER — APPENDED TO BODY
+    const $header = $('<header>')
+    $header.appendTo('body')
 
-    // const $h1Container = $('<div>').attr('id', 'h1-container') // CONTAINER FOR TITLE CREATED
-    // $h1Container.appendTo($header)
+    // APP TITLE — APPENDED TO HEADER
+    const $h1 = $('<h1>').text('weather or not')
+    $h1.appendTo($header)
 
-    const $h1 = $('<h1>').html('weather<br>or not').attr('id', 'weather-general') // APP TITLE
-    $h1.appendTo($header) // APP TITLE ADDED TO HEADER
+    // ============================================================================================ //
+    // ============================================================================================ //
+    // #LOCATION-CONTAINER //// WITH LOCATION INPUTS
+    // ============================================================================================ //
+    // ============================================================================================ //
 
-    // const $h1Mobile = $('<h1>').html('weather or not').attr('id', 'weather-phone') // APP TITLE
-    // $h1Mobile.appendTo($h1Container) // APP TITLE ADDED TO HEADER
+    // LOCATION INPUT CONTAINER — APPENDED TO BODY
+    const $locationContainer = $('<div>').attr('id', 'location-container')
+    $locationContainer.appendTo('body')
 
     // ========== FROM CITY
 
-    const $fromCity = $('<div>').addClass('location-input') // DIV CONTAINER FOR FROM LOCATION
-    $fromCity.appendTo($header) // FROM CITY DIV ADDED TO HEADER
+    // CURRENT LOCATION DIV
+    const $fromCity = $('<div>').addClass('location-input')
+    $fromCity.appendTo($locationContainer)
 
-    const $fromCityAnswer = $('<input>').attr({ // ANSWER FIELD FOR FROM CITY
+    // CURRENT LOCATION INPUT
+    const $fromCityAnswer = $('<input>').attr({
         'type': 'text',
         'name': 'from-city-answer',
-        'placeholder': 'where are you now?' // VISIBLE TO USERS
+        'placeholder': 'I\'m currently in...' // VISIBLE TO USERS
     })
     $fromCityAnswer.appendTo($fromCity)// FROM CITY ANSWER FIELD ADDED TO FROM CITY DIV
 
     // ========== TO CITY
 
-    const $toCity = $('<div>').addClass('location-input') // DIV CONTAINER FOR TO LOCATION
-    $toCity.appendTo($header) // TO CITY DIV ADDED TO HEADER
+    // TO LOCATION DIV
+    const $toCity = $('<div>').addClass('location-input')
+    $toCity.appendTo($locationContainer)
 
-
-    const $toCityAnswer = $('<input>').attr({ // ANSWER FIELD FOR TO CITY
+    // TO LOCATION INPUT
+    const $toCityAnswer = $('<input>').attr({
         'type': 'text',
         'name': 'to-city-answer',
-        'placeholder': 'where are you going?' // VISIBLE TO USERS
+        'placeholder': 'But I\'m going to...' // VISIBLE TO USERS
     })
     $toCityAnswer.appendTo($toCity)// TO CITY ANSWER FIELD ADDED TO TO CITY DIV
 
-    // ========== SUBMIT CITIES
+    // // ========== SUBMIT CITIES
 
     const $buttonCities = $('<button>').attr({ // BUTTON FOR SUBMITTING LOCATIONS
         'type': 'submit',
@@ -59,7 +68,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         'id': 'button-cities-icon'
     })
     $buttonCitiesIcon.appendTo($buttonCities) // ADDED ARROW TO CITIES BUTTON
-    $buttonCities.appendTo($header) // SUBMIT CITIES BUTTON ADDED TO HEADER
+    $buttonCities.appendTo($locationContainer) // SUBMIT CITIES BUTTON ADDED TO HEADER
 
     // ============================================================================================ //
     // ============================================================================================ //
