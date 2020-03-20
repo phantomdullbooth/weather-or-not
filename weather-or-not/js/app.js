@@ -202,7 +202,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
     let atlanta = 4180439;
 
     $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/group?id=" + atlanta + "&units=imperial&appid=bf5d987be69b9eabc1a8e34db0cb1a50"
+        url: "https://api.openweathermap.org/data/2.5/group?id=" + atlanta + "&units=imperial&appid=809de48a635d0e9d74fb6c7053657792"
     }).then(
         (data) => {
             ///// ATLANTA /////
@@ -261,7 +261,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
         let cityEnd = $('input[name="to-city-answer"]').val(); // answers to the 'where from?'
 
         $.ajax({
-            url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityStart + ",us&units=imperial&appid=bf5d987be69b9eabc1a8e34db0cb1a50"
+            url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityStart + ",us&units=imperial&appid=809de48a635d0e9d74fb6c7053657792"
         }).then(
             (data) => {
                 ///// CITY 1 /////
@@ -320,7 +320,7 @@ $(() => { /// DOCUMENT.READY /// DO NOT TOUCH /// DOCUMENT.READY /// DO NOT TOUC
                 }
 
                 $.ajax({
-                    url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityEnd + ",us&units=imperial&appid=bf5d987be69b9eabc1a8e34db0cb1a50"
+                    url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityEnd + ",us&units=imperial&appid=809de48a635d0e9d74fb6c7053657792"
                 }).then(
                     (data) => {
 
